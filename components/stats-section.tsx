@@ -1,0 +1,103 @@
+"use client"
+
+import { useEffect, useState, useRef } from "react"
+
+const stats = [
+  {
+    value: 91,
+    suffix: "%",
+    label: "Se sentent plus reposes au reveil",
+  },
+  {
+    value: 87,
+    suffix: "%",
+    label: "Amelioration de la qualite du sommeil",
+  },
+  {
+    value: 82,
+    suffix: "%",
+    label: "Reduction du stress avant le coucher",
+  },
+  {
+    value: 89,
+    suffix: "%",
+    label: "Endormissement plus rapide",
+  },
+]
+
+function AnimatedStat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef<HTMLDivElement>(null)
+  const [hasAnimated, setHasAnimated] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true)
+          let start = 0
+          const duration = 1500
+          const step = (timestamp: number) => {
+            if (!start) start = timestamp
+            const progress = Math.min((timestamp - start) / duration, 1)
+            setCount(Math.floor(progress * value))
+            if (progress < 1) {
+              requestAnimationFrame(step)
+            }
+          }
+          requestAnimationFrame(step)
+        }
+      },
+      { threshold: 0.5 }
+    )
+
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [value, hasAnimated])
+
+  return (
+    <div ref={ref} className="flex flex-col items-center gap-3 rounded-2xl bg-primary p-8 text-primary-foreground">
+      <div className="relative h-28 w-28">
+        <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" className="opacity-20" />
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="6"
+            strokeLinecap="round"
+            strokeDasharray={`${(count / 100) * 251.2} 251.2`}
+            className="text-accent transition-all duration-100"
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="font-serif text-2xl font-bold">
+            {count}
+            {suffix}
+          </span>
+        </div>
+      </div>
+      <p className="text-center text-sm font-medium leading-tight">{label}</p>
+      <p className="text-center text-xs opacity-60">{"*Panel independant de 4 semaines"}</p>
+    </div>
+  )
+}
+
+export function StatsSection() {
+  return (
+    <section className="bg-card px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-5xl">
+        <h2 className="mb-10 text-center font-serif text-3xl font-bold text-foreground md:text-4xl">
+          {"Les chiffres parlent d'eux-memes"}
+        </h2>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+          {stats.map((stat) => (
+            <AnimatedStat key={stat.label} {...stat} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
