@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar"
-import { TrustBar } from "@/components/trust-bar"
+import { HeroSlider } from "@/components/hero-slider"
 import { HeroSection } from "@/components/hero-section"
+import { PricingComparison } from "@/components/pricing-comparison"
 import { SocialProofSection } from "@/components/social-proof-section"
 import { ScienceSection } from "@/components/science-section"
 import { BenefitsGrid } from "@/components/benefits-grid"
@@ -18,9 +19,10 @@ export default function Home() {
   return (
     <main>
       <Navbar />
-      <TrustBar />
       <HeroSection />
+      <PricingComparison />
       <SocialProofSection />
+      <HeroSlider />
       <ScienceSection />
       <BenefitsGrid />
       <IngredientsSection />

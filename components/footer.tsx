@@ -42,9 +42,9 @@ export function Footer() {
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">Legal</h4>
             <ul className="flex flex-col gap-2 text-sm opacity-70">
-              <li><a href="#" className="transition-opacity hover:opacity-100">{"Mentions Legales"}</a></li>
-              <li><a href="#" className="transition-opacity hover:opacity-100">{"Politique de Confidentialite"}</a></li>
-              <li><a href="#" className="transition-opacity hover:opacity-100">CGV</a></li>
+              <li><a href="/mentions-legales" className="transition-opacity hover:opacity-100">{"Mentions Legales"}</a></li>
+              <li><a href="/politique-confidentialite" className="transition-opacity hover:opacity-100">{"Politique de Confidentialite"}</a></li>
+              <li><a href="/cgv" className="transition-opacity hover:opacity-100">CGV</a></li>
             </ul>
           </div>
         </div>
