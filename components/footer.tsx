@@ -5,14 +5,16 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent">
-                <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4 text-accent-foreground" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-                </svg>
-              </div>
-              <span className="font-serif text-lg font-bold">YOUY GUM</span>
-            </div>
+            <a href="/">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="/images/logo_dark.png" 
+                alt="YOUY GUM Logo" 
+                width={120} 
+                height={40}
+                className="h-10 w-auto scale-[2.5] object-contain" 
+              />
+            </a>
             <p className="mt-3 text-sm leading-relaxed opacity-70">
               {"Des gummies premium pour un sommeil naturel et reparateur. Fabriquees en France avec des ingredients d'excellence."}
             </p>
