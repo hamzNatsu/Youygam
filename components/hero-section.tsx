@@ -89,7 +89,7 @@ export function HeroSection() {
             <Carousel className="w-full">
               <CarouselContent>
                 <CarouselItem>
-                  <div className="overflow-hidden rounded-2xl bg-secondary">
+                  <div className="overflow-hidden rounded-2xl bg-secondary aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/produit_front.jpeg"
@@ -98,12 +98,12 @@ export function HeroSection() {
                       height={600}
                       loading="eager"
                       fetchPriority="high"
-                      className="h-auto w-full max-h-[630px] object-cover"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                 </CarouselItem>
                 <CarouselItem>
-                  <div className="overflow-hidden rounded-2xl bg-secondary">
+                  <div className="overflow-hidden rounded-2xl bg-secondary aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/produit_back.jpeg"
@@ -111,7 +111,7 @@ export function HeroSection() {
                       width={600}
                       height={600}
                       loading="eager"
-                      className="h-auto w-full max-h-[630px] object-cover"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                 </CarouselItem>
@@ -170,6 +170,10 @@ export function HeroSection() {
                   opt.popular ? "scale-105 my-1" : ""
                 }`}
               >
+                {/* Sachet Count Badge */}
+                <span className="absolute -top-3 left-4 rounded-full bg-primary px-3 py-0.5 text-xs font-bold text-primary-foreground">
+                  {opt.subtitle.match(/^\d+\s+sachet[s]?/)?.[0] || opt.subtitle}
+                </span>
                 {opt.popular && (
                   <span className="absolute -top-3 right-4 rounded-full bg-accent px-3 py-0.5 text-xs font-bold text-accent-foreground">
                     Le + Populaire
@@ -188,7 +192,6 @@ export function HeroSection() {
                     </div>
                     <div>
                       <span className="font-semibold text-foreground">{opt.label}</span>
-                      <p className="text-xs text-muted-foreground">{opt.subtitle}</p>
                       <div className="mt-1 flex flex-wrap gap-2 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -228,7 +231,7 @@ export function HeroSection() {
 
           {/* Add to cart */}
           <button className="w-full rounded-xl bg-primary py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg">
-            Ajouter au Panier
+            Acheter maintenant
           </button>
         </div>
       </div>

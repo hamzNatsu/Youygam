@@ -62,12 +62,14 @@ export function PricingComparison() {
                     }`}
                   >
                     <td className="py-4 text-left">
-                      <span className="font-semibold text-foreground">{opt.subtitle}</span>
-                      {opt.popular && (
-                        <span className="ml-2 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
-                          ⭐ Best Seller
-                        </span>
-                      )}
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                        <span className="font-semibold text-foreground">{opt.subtitle}</span>
+                        {opt.popular && (
+                          <span className="whitespace-nowrap rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
+                            ⭐ Best Seller
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="py-4 text-center text-foreground">{opt.duration}</td>
                     <td className="py-4 text-center">

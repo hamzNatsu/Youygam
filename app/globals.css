@@ -102,7 +102,7 @@
 }
 
 .animate-scroll {
-  animation: scroll 12s linear infinite;
+  animation: scroll 7s linear infinite;
 }
 
 .animate-scroll:hover {
