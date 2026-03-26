@@ -5,34 +5,34 @@ import { Plus, Minus } from "lucide-react"
 
 const ingredients = [
   {
-    name: "Melatonine (1mg micro-dosee)",
-    subtitle: "Regulateur naturel du cycle circadien",
+    name: "Mélatonine (1mg micro-dosée)",
+    subtitle: "Régulateur naturel du cycle circadien",
     description:
-      "La melatonine est l'hormone naturellement produite par votre cerveau pour signaler qu'il est temps de dormir. Notre micro-dosage de 1mg respecte les rythmes biologiques, favorisant un endormissement doux sans dependance ni somnolence matinale.",
+      "La mélatonine est l'hormone naturellement produite par votre cerveau pour signaler qu'il est temps de dormir. Notre micro-dosage de 1mg respecte les rythmes biologiques, favorisant un endormissement doux sans dépendance ni somnolence matinale.",
   },
   {
-    name: "L-Theanine (200mg)",
-    subtitle: "Acide amine de la detente mentale",
+    name: "L-Théanine (200mg)",
+    subtitle: "Acide aminé de la détente mentale",
     description:
-      "Extraite du the vert, la L-theanine stimule la production d'ondes alpha dans le cerveau, favorisant un etat de relaxation profonde sans sedation. Elle reduit le cortisol et prepare naturellement le corps au sommeil.",
+      "Extraite du thé vert, la L-théanine stimule la production d'ondes alpha dans le cerveau, favorisant un état de relaxation profonde sans sédation. Elle réduit le cortisol et prépare naturellement le corps au sommeil.",
   },
   {
     name: "Extrait de Passiflore",
     subtitle: "Plante apaisante traditionnelle",
     description:
-      "Utilisee depuis des siecles en phytotherapie, la passiflore augmente les niveaux de GABA dans le cerveau, reduisant l'anxiete et les pensees intrusives qui empechent l'endormissement.",
+      "Utilisée depuis des siècles en phytothérapie, la passiflore augmente les niveaux de GABA dans le cerveau, réduisant l'anxiété et les pensées intrusives qui empêchent l'endormissement.",
   },
   {
     name: "Vitamine B6 (1.4mg)",
     subtitle: "Cofacteur essentiel de la melatonine",
     description:
-      "La vitamine B6 est indispensable a la conversion du tryptophane en serotonine, puis en melatonine. Elle optimise la production naturelle de votre hormone du sommeil pour des nuits plus regulieres.",
+      "La vitamine B6 est indispensable à la conversion du tryptophane en sérotonine, puis en mélatonine. Elle optimise la production naturelle de votre hormone du sommeil pour des nuits plus régulières.",
   },
   {
     name: "Extrait de Camomille",
     subtitle: "Relaxant naturel ancestral",
     description:
-      "L'extrait de camomille matricaire contient de l'apigenine, un flavonoide qui se lie aux recepteurs GABA du cerveau, induisant un effet calmant naturel et preparant le corps au repos.",
+      "L'extrait de camomille matricaire contient de l'apigénine, un flavonoïde qui se lie aux récepteurs GABA du cerveau, induisant un effet calmant naturel et préparant le corps au repos.",
   },
 ]
 
@@ -46,7 +46,7 @@ export function IngredientsSection() {
           {"Dans chaque gummy :"}
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-center text-base text-muted-foreground">
-          {"5 ingredients actifs, soigneusement doses pour un sommeil optimal."}
+          {"5 ingrédients actifs, soigneusement dosés pour un sommeil optimal."}
         </p>
 
         <div className="mt-10 flex flex-col gap-3">

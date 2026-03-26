@@ -17,11 +17,11 @@ export function CtaSection() {
 
         <div className="relative flex flex-col items-center px-8 py-16 text-center md:py-24">
           <h2 className="font-serif text-3xl font-bold leading-tight text-primary-foreground md:text-4xl lg:text-5xl text-balance">
-            {"C'est pourquoi les Sleep Gummies YOUY GUM ont ete creees"}
+            {"C'est pourquoi les Sleep Gummies YOUY GUM ont été créées"}
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
-            {"En combinant des ingredients naturels cliniquement etudies, vous pouvez restaurer votre cycle de sommeil a sa source : en calmant le systeme nerveux, en regulant la melatonine et en preparant votre corps a un repos profond et reparateur."}
+            {"En combinant des ingrédients naturels cliniquement étudiés, vous pouvez restaurer votre cycle de sommeil à sa source : en calmant le système nerveux, en régulant la mélatonine et en préparant votre corps à un repos profond et réparateur."}
           </p>
 
           <a

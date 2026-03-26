@@ -7,12 +7,12 @@ export function ExpertSection() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Text */}
           <div>
-            <p className="text-sm font-medium text-muted-foreground">15 fevrier 2026</p>
+            <p className="text-sm font-medium text-muted-foreground">15 février 2026</p>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              {"L'avis de Dr. Sophie Laurent, specialiste du sommeil"}
+              {"L'avis des spécialistes du sommeil."}
             </h2>
             <blockquote className="mt-6 border-l-4 border-accent pl-6 italic text-muted-foreground leading-relaxed">
-              {'"Un sommeil de qualite commence par un bon equilibre hormonal et un systeme nerveux apaise. Les Sleep Gummies de YOUY GUM sont concus pour accompagner ces deux axes. Leur formule a base de melatonine micro-dosee, de L-theanine et de plantes apaisantes offre une approche douce mais efficace. De nombreux patients m\'ont rapporte un endormissement plus rapide, une meilleure qualite de sommeil et un reveil sans lourdeur. Pour quiconque souhaite optimiser son sommeil de facon naturelle, c\'est une approche intelligente et fondee sur la science."'}
+              {'"Un sommeil de qualité commence par un bon équilibre hormonal et un système nerveux apaisé. Les Sleep Gummies de YOUY GUM sont conçus pour accompagner ces deux axes. Leur formule à base de mélatonine micro-dosée, de L-théanine et de plantes apaisantes offre une approche douce mais efficace. De nombreux patients m\'ont rapporté un endormissement plus rapide, une meilleure qualité de sommeil et un réveil sans lourdeur. Pour quiconque souhaite optimiser son sommeil de façon naturelle, c\'est une approche intelligente et fondée sur la science."'}
             </blockquote>
 
             <div className="mt-8">
@@ -41,7 +41,7 @@ export function ExpertSection() {
             <div className="overflow-hidden rounded-2xl">
               <Image
                 src="/images/sleep-expert.jpg"
-                alt="Dr. Sophie Laurent, specialiste du sommeil"
+                alt="Dr. Sophie Laurent, spécialiste du sommeil"
                 width={500}
                 height={600}
                 className="h-auto w-full max-w-md object-cover"

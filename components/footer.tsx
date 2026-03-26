@@ -1,3 +1,5 @@
+import { Lock } from "lucide-react"
+
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -16,7 +18,7 @@ export function Footer() {
               />
             </a>
             <p className="mt-3 text-sm leading-relaxed opacity-70">
-              {"Des gummies premium pour un sommeil naturel et reparateur. Fabriquees en France avec des ingredients d'excellence."}
+              {"Des gummies premium pour un sommeil naturel et réparateur. Fabriquées en France avec des ingrédients d'excellence."}
             </p>
           </div>
 
@@ -25,7 +27,7 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">Produit</h4>
             <ul className="flex flex-col gap-2 text-sm opacity-70">
               <li><a href="#" className="transition-opacity hover:opacity-100">Sleep Gummies</a></li>
-              <li><a href="#ingredients" className="transition-opacity hover:opacity-100">Ingredients</a></li>
+              <li><a href="#ingredients" className="transition-opacity hover:opacity-100">Ingrédients</a></li>
               <li><a href="#benefits" className="transition-opacity hover:opacity-100">Bienfaits</a></li>
               <li><a href="#reviews" className="transition-opacity hover:opacity-100">Avis Clients</a></li>
             </ul>
@@ -42,10 +44,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">Legal</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">Légal</h4>
             <ul className="flex flex-col gap-2 text-sm opacity-70">
-              <li><a href="/mentions-legales" className="transition-opacity hover:opacity-100">{"Mentions Legales"}</a></li>
-              <li><a href="/politique-confidentialite" className="transition-opacity hover:opacity-100">{"Politique de Confidentialite"}</a></li>
+              <li><a href="/mentions-legales" className="transition-opacity hover:opacity-100">{"Mentions légales"}</a></li>
+              <li><a href="/politique-confidentialite" className="transition-opacity hover:opacity-100">{"Politique de confidentialité"}</a></li>
               <li><a href="/cgv" className="transition-opacity hover:opacity-100">CGV</a></li>
             </ul>
           </div>
@@ -53,13 +55,27 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/10 pt-8 md:flex-row">
           <p className="text-xs opacity-50">
-            {"2026 YOUY GUM. Tous droits reserves. Complement alimentaire - Ne se substitue pas a une alimentation variee et equilibree."}
+            {"2026 YOUY GUM. Tous droits réservés. Complément alimentaire - Ne se substitue pas à une alimentation variée et équilibrée."}
           </p>
-          <div className="flex items-center gap-4">
-            <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">VISA</span>
-            <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">Mastercard</span>
-            <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">PayPal</span>
-            <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">Apple Pay</span>
+          <div className="flex flex-col items-center gap-3 md:items-end">
+            <div className="flex items-center gap-2 text-xs opacity-80">
+              <Lock className="h-4 w-4" />
+              <span>
+                Paiement sécurisé (Stripe / Shopify) 
+                <span className="mx-1">•</span>
+                3D Secure 
+                <span className="mx-1">•</span>
+                Chiffrement SSL
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">VISA</span>
+              <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">Mastercard</span>
+              <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">PayPal</span>
+              <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">Apple Pay</span>
+              <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">Stripe</span>
+              <span className="rounded bg-primary-foreground/10 px-3 py-1 text-xs font-medium">Shopify</span>
+            </div>
           </div>
         </div>
       </div>

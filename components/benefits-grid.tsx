@@ -6,28 +6,28 @@ const benefitCards = [
     icon: Moon,
     title: "Endormissement Rapide",
     description:
-      "La melatonine naturelle et la L-theanine agissent en synergie pour calmer le systeme nerveux, vous aidant a vous endormir plus vite, sans agitation.",
+      "La mélatonine naturelle et la L-théanine agissent en synergie pour calmer le système nerveux, vous aidant à vous endormir plus vite, sans agitation.",
     position: "top-left" as const,
   },
   {
     icon: Brain,
-    title: "Sommeil Profond & Reparateur",
+    title: "Sommeil Profond & Réparateur",
     description:
-      "Notre formule favorise les cycles de sommeil profond, essentiels a la recuperation musculaire, la consolidation de la memoire et la regeneration cellulaire.",
+      "Notre formule favorise les cycles de sommeil profond, essentiels à la récupération musculaire, la consolidation de la mémoire et la régénération cellulaire.",
     position: "top-right" as const,
   },
   {
     icon: Heart,
-    title: "Reduction du Stress Nocturne",
+    title: "Réduction du Stress Nocturne",
     description:
-      "Le L-tryptophane et les extraits de passiflore reduisent naturellement le cortisol, apaisant les pensees agitees pour un endormissement serein.",
+      "Le L-tryptophane et les extraits de passiflore réduisent naturellement le cortisol, apaisant les pensées agitées pour un endormissement serein.",
     position: "bottom-left" as const,
   },
   {
     icon: Sun,
-    title: "Reveil Frais & Energise",
+    title: "Réveil Frais & Énergisé",
     description:
-      "Contrairement aux somniferes, nos gummies ne provoquent aucune somnolence au reveil. Vous vous levez repose, alerte et pret pour la journee.",
+      "Contrairement aux somnifères, nos gummies ne provoquent aucune somnolence au réveil. Vous vous levez reposé, alerte et prêt pour la journée.",
     position: "bottom-right" as const,
   },
 ]
@@ -50,8 +50,8 @@ export function BenefitsGrid() {
           <div className="flex items-center justify-center">
             <div className="relative overflow-hidden rounded-2xl">
               <Image
-                src="/images/youy-gummies-pillow.jpeg"
-                alt="YOUY GUM Sleep Gummies sur un oreiller"
+                src="/images/image_2.jpeg"
+                alt="YOUY GUM - Image 2"
                 width={500}
                 height={600}
                 className="h-auto w-full object-cover"

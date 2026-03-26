@@ -102,6 +102,70 @@ export function PricingComparison() {
               Profitez de nos packs avantageux pour faire des économies sur le long terme
             </p>
           </div>
+
+          <div className="mt-10 border-t border-border pt-8">
+            <h3 className="mb-4 text-center text-lg font-semibold text-foreground">
+              YOUY GUM vs somnifères classiques vs autres gummies sommeil
+            </h3>
+            <p className="mx-auto mb-4 max-w-2xl text-center text-xs text-muted-foreground">
+              Comparatif indicatif basé sur la littérature disponible et les retours clients. Les effets peuvent
+              varier selon les profils.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs md:text-sm">
+                <thead>
+                  <tr className="border-b-2 border-border">
+                    <th className="pb-3 text-left font-semibold text-foreground">Critère</th>
+                    <th className="pb-3 text-center font-semibold text-foreground">YOUY GUM Sleep</th>
+                    <th className="pb-3 text-center font-semibold text-foreground">Somnifères classiques</th>
+                    <th className="pb-3 text-center font-semibold text-foreground">Autres gummies sommeil</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border">
+                    <td className="py-3 font-medium text-foreground">Risque de dépendance</td>
+                    <td className="py-3 text-center text-emerald-600">Faible*</td>
+                    <td className="py-3 text-center text-destructive">Élevé</td>
+                    <td className="py-3 text-center text-amber-600">Variable</td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="py-3 font-medium text-foreground">Somnolence au réveil</td>
+                    <td className="py-3 text-center text-emerald-600">Très limitée</td>
+                    <td className="py-3 text-center text-destructive">Fréquent</td>
+                    <td className="py-3 text-center text-amber-600">Selon formule</td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="py-3 font-medium text-foreground">Composition</td>
+                    <td className="py-3 text-center">Mélatonine micro-dosée + plantes + L-théanine</td>
+                    <td className="py-3 text-center">Molécules de synthèse</td>
+                    <td className="py-3 text-center">Parfois sucrées, arômes artificiels</td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="py-3 font-medium text-foreground">Installation des effets</td>
+                    <td className="py-3 text-center">Progressif et naturel</td>
+                    <td className="py-3 text-center">Rapide mais plus brutal</td>
+                    <td className="py-3 text-center">Variable</td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="py-3 font-medium text-foreground">Fabriqué en France / norme ISO</td>
+                    <td className="py-3 text-center text-emerald-600">Oui</td>
+                    <td className="py-3 text-center text-amber-600">Selon produit</td>
+                    <td className="py-3 text-center text-amber-600">Selon marque</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 font-medium text-foreground">Expérience utilisateur</td>
+                    <td className="py-3 text-center">Goût agréable, routine plaisir avant le coucher</td>
+                    <td className="py-3 text-center">Comprimé / capsule, expérience médicalisée</td>
+                    <td className="py-3 text-center">Variable (texture, sucre, arômes)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs text-muted-foreground">
+              *YOUY GUM Sleep reste un complément alimentaire. Demandez conseil à votre médecin en cas de
+              traitement en cours ou de trouble du sommeil chronique.
+            </p>
+          </div>
         </div>
       </div>
     </section>

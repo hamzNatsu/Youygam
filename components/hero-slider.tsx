@@ -15,7 +15,6 @@ const sliderImages = [
   { src: "/images/image_1.jpeg", alt: "YOUY GUM - Image 1" },
   { src: "/images/image_2.jpeg", alt: "YOUY GUM - Image 2" },
   { src: "/images/image_3.jpeg", alt: "YOUY GUM - Image 3" },
-  { src: "/images/image_4.jpeg", alt: "YOUY GUM - Image 4" },
 ]
 
 export function HeroSlider() {

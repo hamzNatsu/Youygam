@@ -6,17 +6,17 @@ const stats = [
   {
     value: 91,
     suffix: "%",
-    label: "Se sentent plus reposes au reveil",
+    label: "Se sentent plus reposés au réveil",
   },
   {
     value: 87,
     suffix: "%",
-    label: "Amelioration de la qualite du sommeil",
+    label: "Amélioration de la qualité du sommeil",
   },
   {
     value: 82,
     suffix: "%",
-    label: "Reduction du stress avant le coucher",
+    label: "Réduction du stress avant le coucher",
   },
   {
     value: 89,
@@ -80,7 +80,7 @@ function AnimatedStat({ value, suffix, label }: { value: number; suffix: string;
         </div>
       </div>
       <p className="text-center text-sm font-medium leading-tight">{label}</p>
-      <p className="text-center text-xs opacity-60">{"*Panel independant de 4 semaines"}</p>
+      <p className="text-center text-xs opacity-60">{"*Panel indépendant de 4 semaines"}</p>
     </div>
   )
 }
@@ -90,7 +90,7 @@ export function StatsSection() {
     <section className="bg-card px-6 py-16 md:py-24">
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-10 text-center font-serif text-3xl font-bold text-foreground md:text-4xl">
-          {"Les chiffres parlent d'eux-memes"}
+          {"Les chiffres parlent d'eux-mêmes"}
         </h2>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {stats.map((stat) => (

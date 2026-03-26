@@ -2,7 +2,7 @@ import Image from "next/image"
 
 const stats = [
   { value: "94%", label: "des utilisateurs rapportent un endormissement plus rapide en 2 semaines" },
-  { value: "89%", label: "des utilisateurs constatent un reveil plus frais et plus energise" },
+  { value: "89%", label: "des utilisateurs constatent un réveil plus frais et plus énergisé" },
 ]
 
 export function MissionSection() {
@@ -24,10 +24,10 @@ export function MissionSection() {
           {/* Text + Stats */}
           <div>
             <h2 className="font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl text-balance">
-              {"Notre mission : aider 1 000 000 de Francais a retrouver un sommeil naturel et reparateur"}
+              {"Notre mission : aider 1 000 000 de Français à retrouver un sommeil naturel et réparateur"}
             </h2>
 
-            <p className="mt-4 text-base text-muted-foreground">{"Voici ou nous en sommes aujourd'hui :"}</p>
+            <p className="mt-4 text-base text-muted-foreground">{"Voici où nous en sommes aujourd'hui :"}</p>
 
             <div className="mt-6 flex flex-col gap-4 sm:flex-row">
               {stats.map((stat) => (
@@ -39,7 +39,7 @@ export function MissionSection() {
             </div>
 
             <p className="mt-4 text-xs text-muted-foreground italic">
-              {"*Base sur un panel independant de 4 semaines aupres de 500 utilisateurs."}
+              {"*Basé sur un panel indépendant de 4 semaines auprès de 500 utilisateurs."}
             </p>
           </div>
         </div>

@@ -2,28 +2,28 @@ import Image from "next/image"
 
 const problems = [
   {
-    image: "/images/screen-stress.jpg",
-    title: "Surexposition aux ecrans",
+    image: "/images/image_1.jpeg",
+    title: "Surexposition aux écrans",
     description:
-      "La lumiere bleue des ecrans supprime la production de melatonine, perturbant le signal naturel d'endormissement de votre cerveau. Le scrolling nocturne stimule le cortisol et maintient le cerveau en etat d'alerte.",
+      "La lumière bleue des écrans supprime la production de mélatonine, perturbant le signal naturel d'endormissement de votre cerveau. Le scrolling nocturne stimule le cortisol et maintient le cerveau en état d'alerte.",
   },
   {
     image: "/images/caffeine-stress.jpg",
     title: "Stress & stimulants excessifs",
     description:
-      "Le cafe, les boissons energisantes et le stress chronique maintiennent votre systeme nerveux en mode hypervigilance. Le cortisol eleve empeche la detente necessaire a un sommeil profond et reparateur.",
+      "Le café, les boissons énergisantes et le stress chronique maintiennent votre système nerveux en mode hypervigilance. Le cortisol élevé empêche la détente nécessaire à un sommeil profond et réparateur.",
   },
   {
-    image: "/images/busy-lifestyle.jpg",
-    title: "Rythme de vie effrenee",
+    image: "/images/image_3.jpeg",
+    title: "Rythme de vie effrénée",
     description:
-      "Les horaires irreguliers, le travail tardif et le manque de routine de sommeil desynchronisent votre horloge biologique. Votre corps ne sait plus quand il est temps de dormir.",
+        "Les horaires irréguliers, le travail tardif et le manque de routine de sommeil désynchronisent votre horloge biologique. Votre corps ne sait plus quand il est temps de dormir.",
   },
   {
     image: "/images/aging-sleep.jpg",
-    title: "Declin naturel de la melatonine",
+    title: "Déclin naturel de la mélatonine",
     description:
-      "A partir de 30 ans, la production naturelle de melatonine diminue de 10% par decennie. A 50 ans, votre corps produit moitie moins de melatonine qu'a 20 ans, rendant l'endormissement plus difficile.",
+      "À partir de 30 ans, la production naturelle de mélatonine diminue de 10% par décennie. À 50 ans, votre corps produit moitié moins de mélatonine qu'à 20 ans, rendant l'endormissement plus difficile.",
   },
 ]
 
@@ -36,7 +36,7 @@ export function ModernLifeSection() {
             {"Pourquoi le sommeil est devenu si difficile"}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            {"Nos modes de vie modernes ont profondement perturbe nos mecanismes naturels de sommeil. L'exposition permanente aux ecrans, le stress chronique et les stimulants alterent notre capacite a nous endormir. Notre corps n'a pas ete concu pour ce niveau de sollicitation."}
+            {"Nos modes de vie modernes ont profondément perturbé nos mécanismes naturels de sommeil. L'exposition permanente aux écrans, le stress chronique et les stimulants altèrent notre capacité à nous endormir. Notre corps n'a pas été conçu pour ce niveau de sollicitation."}
           </p>
         </div>
 

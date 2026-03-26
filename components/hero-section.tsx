@@ -12,10 +12,9 @@ import {
 
 const benefits = [
   { icon: Moon, text: "Favorise un endormissement rapide et naturel." },
-  { icon: Brain, text: "Ameliore la qualite du sommeil profond." },
-  { icon: Heart, text: "Reduit le stress et l'anxiete nocturne." },
-  { icon: Sparkles, text: "Reveil frais et repose, sans somnolence." },
-  { icon: Users, text: "Rejoint par +12 000 dormeurs satisfaits !" },
+  { icon: Brain, text: "Améliore la qualité du sommeil profond." },
+  { icon: Heart, text: "Réduit le stress et l'anxiété nocturne." },
+  { icon: Sparkles, text: "Réveil frais et reposé, sans somnolence." },
 ]
 
 const pricingOptions = [
@@ -31,6 +30,10 @@ const pricingOptions = [
     delivery: "Standard",
     perks: ["Livraison GRATUITE"],
     popular: false,
+    normalUrl:
+      "https://f8cebf-de.myshopify.com/products/pack-1-l-essai-30-jours-abonnement",
+    singleUrl:
+      "https://f8cebf-de.myshopify.com/products/pack-1-l-essai-30-jours-achat-unique",
   },
   {
     id: "two",
@@ -44,6 +47,10 @@ const pricingOptions = [
     delivery: "Standard",
     perks: ["Livraison GRATUITE", 'OFFERT : Guide "Mieux Dormir"'],
     popular: true,
+    normalUrl:
+      "https://f8cebf-de.myshopify.com/products/pack-2-l-equilibre-60-jours-abonnement-1",
+    singleUrl:
+      "https://f8cebf-de.myshopify.com/products/pack-2-l-equilibre-60-jours-abonnement",
   },
   {
     id: "three",
@@ -57,6 +64,10 @@ const pricingOptions = [
     delivery: "Express",
     perks: ["Livraison GRATUITE", 'OFFERT : Guide "Mieux Dormir"', "OFFERT : Masque de Sommeil Premium"],
     popular: false,
+    normalUrl:
+      "https://f8cebf-de.myshopify.com/products/pack-3-vitalite-90-jours-abonnement",
+    singleUrl:
+      "https://f8cebf-de.myshopify.com/products/pack-3-vitalite-90-jours-achat-unique",
   },
   {
     id: "four",
@@ -70,22 +81,78 @@ const pricingOptions = [
     delivery: "Express",
     perks: ["Livraison GRATUITE", 'OFFERT : Guide "Mieux Dormir"', "OFFERT : Masque de Sommeil Premium", "OFFERT : Brume d'Oreiller Relaxante"],
     popular: false,
+    normalUrl:
+      "https://f8cebf-de.myshopify.com/products/pack-4-pack-famille-150-jours-abonnement",
+    singleUrl:
+      "https://f8cebf-de.myshopify.com/products/pack-4-pack-famille-150-jours-achat-unique",
   },
 ]
 
 export function HeroSection() {
   const [selected, setSelected] = useState("two")
+  const [singlePurchase, setSinglePurchase] = useState(false)
+
+  const handleBuyNow = () => {
+    const option = pricingOptions.find((opt) => opt.id === selected)
+    if (!option) return
+
+    const url = singlePurchase ? option.singleUrl : option.normalUrl
+    if (!url) return
+
+    window.location.href = url
+  }
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-8 lg:py-12">
-      <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+    <section id="acheter" className="px-6 py-8 lg:py-12">
+      {/* Top - Badges, rating, title */}
+      <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
+        {/* Origin & quality badges */}
+        <div className="mt-2 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 font-medium text-primary">
+            <CheckCircle2 className="h-3.5 w-3.5" />
+            <span>Fabriqué en France</span>
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 font-medium text-primary">
+            <CheckCircle2 className="h-3.5 w-3.5" />
+            <span>Site de production certifié ISO</span>
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-1">
+            <span>Sans sucre</span>
+            <span>•</span>
+            <span>Vegan</span>
+            <span>•</span>
+            <span>Sans gluten</span>
+          </span>
+        </div>
+
+        {/* Rating */}
+        <div className="flex items-center justify-center gap-2">
+          <div className="flex">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+            ))}
+          </div>
+          <span className="text-sm font-medium text-muted-foreground">
+            {"4.9/5 Excellent"}
+          </span>
+        </div>
+
+        {/* Title */}
+        <div>
+          <h1 className="font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
+            Sleep Gummies
+          </h1>
+          <p className="mt-2 text-base text-muted-foreground">
+            {"Mélatonine + L-Théanine + Plantes apaisantes"}
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom - Product image & details */}
+      <div className="mx-auto mt-10 grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Left - Product Image */}
         <div className="relative flex items-center justify-center">
           <div className="relative">
-            <div className="absolute -bottom-2 -right-2 z-10 flex items-center gap-2 rounded-full bg-card px-4 py-2 shadow-lg">
-              <Users className="h-4 w-4 text-accent" />
-              <span className="text-xs font-semibold text-foreground">{"12 500+ Clients Satisfaits"}</span>
-            </div>
             <Carousel className="w-full">
               <CarouselContent>
                 <CarouselItem>
@@ -124,28 +191,6 @@ export function HeroSection() {
 
         {/* Right - Product Info */}
         <div className="flex flex-col gap-6">
-          {/* Rating */}
-          <div className="flex items-center gap-2">
-            <div className="flex">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="h-5 w-5 fill-accent text-accent" />
-              ))}
-            </div>
-            <span className="text-sm font-medium text-muted-foreground">
-              {"4.9/5 Excellent | 2 381 avis verifies"}
-            </span>
-          </div>
-
-          {/* Title */}
-          <div>
-            <h1 className="font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
-              Sleep Gummies
-            </h1>
-            <p className="mt-2 text-base text-muted-foreground">
-              {"Melatonine + L-Theanine + Plantes Apaisantes"}
-            </p>
-          </div>
-
           {/* Benefits */}
           <div className="flex flex-col gap-3">
             {benefits.map((b) => (
@@ -212,8 +257,15 @@ export function HeroSection() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="text-lg font-bold text-foreground">{opt.price}{""}{"EUR"}</span>
-                    <p className="text-xs text-muted-foreground line-through">{opt.originalPrice}{"EUR"}</p>
+                    <span className="text-lg font-bold text-foreground">
+                      {singlePurchase ? opt.originalPrice : opt.price}
+                      {""}
+                      {"EUR"}
+                    </span>
+                    <p className={`text-xs text-muted-foreground ${singlePurchase ? "" : "line-through"}`}>
+                      {singlePurchase ? opt.price : opt.originalPrice}
+                      {"EUR"}
+                    </p>
                   </div>
                 </div>
                 {/* Perks */}
@@ -230,9 +282,27 @@ export function HeroSection() {
           </div>
 
           {/* Add to cart */}
-          <button className="w-full rounded-xl bg-primary py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg">
+          <button
+            onClick={handleBuyNow}
+            className="w-full rounded-xl bg-primary py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+          >
             Acheter maintenant
           </button>
+
+          {/* Single Purchase Checkbox */}
+          <div className="flex items-center gap-3 rounded-lg border border-border bg-card/50 p-4">
+            <input
+              type="checkbox"
+              id="single-purchase"
+              checked={singlePurchase}
+              onChange={(e) => setSinglePurchase(e.target.checked)}
+              className="h-5 w-5 cursor-pointer accent-primary"
+            />
+            <label htmlFor="single-purchase" className="flex flex-col cursor-pointer flex-1">
+              <span className="font-semibold text-foreground">Achat unique</span>
+              <span className="text-xs text-muted-foreground">Sans abonnement récurrent</span>
+            </label>
+          </div>
         </div>
       </div>
     </section>
