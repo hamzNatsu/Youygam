@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Star, Moon, Brain, Heart, Sparkles, Users, CheckCircle2, Leaf } from "lucide-react"
 import {
   Carousel,
@@ -81,6 +81,27 @@ const startingPriceLabel = `${startingPrice.toFixed(2).replace(".", ",")} €`
 export function HeroSection() {
   const [selected, setSelected] = useState("two")
   const [singlePurchase, setSinglePurchase] = useState(false)
+  const imageRef = useRef<HTMLDivElement | null>(null)
+  const [imageInView, setImageInView] = useState(false)
+
+  useEffect(() => {
+    if (!imageRef.current || typeof window === "undefined") return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setImageInView(true)
+        }
+      },
+      { threshold: 0.3 },
+    )
+
+    observer.observe(imageRef.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const handleBuyNow = () => {
     const option = pricingOptions.find((opt) => opt.id === selected)
@@ -158,29 +179,26 @@ export function HeroSection() {
 
       {/* Bottom - Product image & details */}
       <div className="mx-auto mt-10 grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-16">
-        {/* Left - Product Image (sachet mis en avant) */}
-        <div className="relative flex items-center justify-center">
-          <div className="relative">
-            <Carousel className="w-full max-w-[460px]">
-              <CarouselContent>
-                <CarouselItem>
-                  <div className="overflow-hidden rounded-2xl bg-secondary aspect-square">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/produit_front.jpeg"
-                      alt="YOUY GUM Sleep Gummies - Face avant"
-                      width={600}
-                      height={600}
-                      loading="eager"
-                      fetchPriority="high"
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                </CarouselItem>
-              </CarouselContent>
-              <CarouselPrevious className="left-4" />
-              <CarouselNext className="right-4" />
-            </Carousel>
+        {/* Left - Product Image (sachet mis en avant, plus grand, sticky + animation à l'apparition) */}
+        <div className="relative flex items-start justify-center lg:sticky lg:top-24">
+          <div
+            ref={imageRef}
+            className={`relative w-full max-w-[520px] transition-all duration-700 ease-out ${
+              imageInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <div className="relative overflow-hidden rounded-3xl bg-secondary/80 p-4 shadow-2xl shadow-primary/20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/produit_front.jpeg"
+                alt="YOUY GUM Sleep Gummies - Face avant"
+                width={720}
+                height={720}
+                loading="eager"
+                fetchPriority="high"
+                className="mx-auto h-auto w-full max-h-[460px] object-contain"
+              />
+            </div>
 
             {/* Floating badge on product image */}
             <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-primary/90 px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg">
