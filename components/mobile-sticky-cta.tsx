@@ -7,7 +7,7 @@ export function MobileStickyCta() {
         href="#acheter"
         className="block rounded-xl bg-primary py-3 text-center text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-primary/30 transition-transform hover:scale-[1.01]"
       >
-        Acheter maintenant
+        Essayer maintenant
       </a>
     </div>
   )

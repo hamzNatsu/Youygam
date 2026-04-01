@@ -19,7 +19,7 @@ const reviews = [
     text: "J'étais sceptique au début, mais dès la première semaine j'ai senti une différence. Mon cerveau s'arrête enfin de tourner le soir. Le goût est agréable et l'effet est rapide. Je recommande vivement à tous ceux qui ont du mal à dormir.",
   },
   {
-    name: "Pierre M.",
+    name: "Claire M.",
     location: "Bordeaux",
     image: "/images/reviews/claire.jpg",
     rating: 5,
@@ -61,7 +61,13 @@ export function ReviewsSection() {
                       <span className="font-semibold text-foreground">{review.name}</span>
                       <CheckCircle2 className="h-4 w-4 text-primary" />
                     </div>
-                    <span className="text-xs text-muted-foreground">{review.location} | Client vérifié</span>
+                    <div className="mt-0.5 flex items-center gap-2">
+                      <span className="text-xs text-muted-foreground">{review.location}</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+                        <CheckCircle2 className="h-3 w-3" />
+                        Achat vérifié
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div className="flex">

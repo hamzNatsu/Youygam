@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { Star } from "lucide-react"
 
 export function ExpertSection() {
   return (
@@ -11,9 +12,29 @@ export function ExpertSection() {
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl">
               {"L'avis des spécialistes du sommeil."}
             </h2>
-            <blockquote className="mt-6 border-l-4 border-accent pl-6 italic text-muted-foreground leading-relaxed">
-              {'"Un sommeil de qualité commence par un bon équilibre hormonal et un système nerveux apaisé. Les Sleep Gummies de YOUY GUM sont conçus pour accompagner ces deux axes. Leur formule à base de mélatonine micro-dosée, de L-théanine et de plantes apaisantes offre une approche douce mais efficace. De nombreux patients m\'ont rapporté un endormissement plus rapide, une meilleure qualité de sommeil et un réveil sans lourdeur. Pour quiconque souhaite optimiser son sommeil de façon naturelle, c\'est une approche intelligente et fondée sur la science."'}
-            </blockquote>
+
+            <div className="mt-6 rounded-2xl border border-accent/40 bg-card/80 p-6 shadow-lg shadow-accent/10">
+              <div className="mb-3 flex items-center gap-2 text-accent">
+                <Star className="h-4 w-4 fill-accent text-accent" />
+                <Star className="h-4 w-4 fill-accent text-accent" />
+                <Star className="h-4 w-4 fill-accent text-accent" />
+                <Star className="h-4 w-4 fill-accent text-accent" />
+                <Star className="h-4 w-4 fill-accent text-accent" />
+                <span className="ml-2 text-xs font-semibold uppercase tracking-wide">
+                  {"Avis d'experte"}
+                </span>
+              </div>
+              <blockquote className="italic leading-relaxed text-muted-foreground">
+                {'"Un sommeil de qualité commence par un bon équilibre hormonal et un système nerveux apaisé. Les Sleep Gummies de YOUY GUM sont conçus pour accompagner ces deux axes. Leur formule à base de mélatonine micro-dosée, de L-théanine et de plantes apaisantes offre une approche douce mais efficace. De nombreux patients m\'ont rapporté un endormissement plus rapide, une meilleure qualité de sommeil et un réveil sans lourdeur. Pour quiconque souhaite optimiser son sommeil de façon naturelle, c\'est une approche intelligente et fondée sur la science."'}
+              </blockquote>
+              <div className="mt-4 flex items-center gap-3 text-sm text-foreground">
+                <div className="h-8 w-8 rounded-full bg-accent/20" />
+                <div>
+                  <div className="font-semibold">Dr Sophie Laurent</div>
+                  <div className="text-xs text-muted-foreground">Médecin du sommeil, Paris</div>
+                </div>
+              </div>
+            </div>
 
             <div className="mt-8">
               <a
@@ -38,7 +59,7 @@ export function ExpertSection() {
 
           {/* Expert Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="overflow-hidden rounded-2xl">
+            <div className="relative overflow-hidden rounded-2xl">
               <Image
                 src="/images/sleep-expert.jpg"
                 alt="Dr. Sophie Laurent, spécialiste du sommeil"
@@ -46,6 +67,16 @@ export function ExpertSection() {
                 height={600}
                 className="h-auto w-full max-w-md object-cover"
               />
+              <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/90 px-4 py-1.5 text-xs font-medium text-foreground shadow-lg">
+                <span className="flex items-center gap-1 text-accent">
+                  <Star className="h-3 w-3 fill-accent text-accent" />
+                  <Star className="h-3 w-3 fill-accent text-accent" />
+                  <Star className="h-3 w-3 fill-accent text-accent" />
+                  <Star className="h-3 w-3 fill-accent text-accent" />
+                  <Star className="h-3 w-3 fill-accent text-accent" />
+                </span>
+                <span>{"Recommandé par le Dr Laurent"}</span>
+              </div>
             </div>
           </div>
         </div>

@@ -4,28 +4,31 @@ import { useEffect, useState, useRef } from "react"
 
 const stats = [
   {
-    value: 91,
-    suffix: "%",
-    label: "Se sentent plus reposés au réveil",
-  },
-  {
-    value: 87,
-    suffix: "%",
-    label: "Amélioration de la qualité du sommeil",
-  },
-  {
-    value: 82,
-    suffix: "%",
-    label: "Réduction du stress avant le coucher",
+    value: 94,
+    display: "94%",
+    label: "constatent un sommeil plus profond",
   },
   {
     value: 89,
-    suffix: "%",
-    label: "Endormissement plus rapide",
+    display: "89%",
+    label: "s'endorment plus facilement qu'avant YOUY GUM",
+  },
+  {
+    value: 80,
+    display: "45 min → 18 min",
+    label: "temps moyen d'endormissement après 4 semaines",
   },
 ]
 
-function AnimatedStat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+function AnimatedStat({
+  value,
+  display,
+  label,
+}: {
+  value: number
+  display: string
+  label: string
+}) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLDivElement>(null)
   const [hasAnimated, setHasAnimated] = useState(false)
@@ -73,10 +76,7 @@ function AnimatedStat({ value, suffix, label }: { value: number; suffix: string;
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-serif text-2xl font-bold">
-            {count}
-            {suffix}
-          </span>
+          <span className="font-serif text-xl font-bold md:text-2xl">{display}</span>
         </div>
       </div>
       <p className="text-center text-sm font-medium leading-tight">{label}</p>
@@ -92,7 +92,7 @@ export function StatsSection() {
         <h2 className="mb-10 text-center font-serif text-3xl font-bold text-foreground md:text-4xl">
           {"Les chiffres parlent d'eux-mêmes"}
         </h2>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
           {stats.map((stat) => (
             <AnimatedStat key={stat.label} {...stat} />
           ))}

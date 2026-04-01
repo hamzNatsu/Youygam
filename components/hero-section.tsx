@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Star, Moon, Brain, Heart, Sparkles, Users, CheckCircle2 } from "lucide-react"
+import { Star, Moon, Brain, Heart, Sparkles, Users, CheckCircle2, Leaf } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
@@ -28,7 +28,7 @@ const pricingOptions = [
     duration: "30 jours",
     pricePerDay: "1,49 €",
     delivery: "Standard",
-    perks: ["Livraison GRATUITE"],
+    perks: [],
     popular: false,
     normalUrl:
       "https://f8cebf-de.myshopify.com/products/pack-1-l-essai-30-jours-abonnement",
@@ -45,7 +45,7 @@ const pricingOptions = [
     duration: "60 jours",
     pricePerDay: "1,24 €",
     delivery: "Standard",
-    perks: ["Livraison GRATUITE", 'OFFERT : Guide "Mieux Dormir"'],
+    perks: ['OFFERT : Guide "Mieux Dormir"'],
     popular: true,
     normalUrl:
       "https://f8cebf-de.myshopify.com/products/pack-2-l-equilibre-60-jours-abonnement-1",
@@ -62,31 +62,21 @@ const pricingOptions = [
     duration: "90 jours",
     pricePerDay: "1,11 €",
     delivery: "Express",
-    perks: ["Livraison GRATUITE", 'OFFERT : Guide "Mieux Dormir"', "OFFERT : Masque de Sommeil Premium"],
+    perks: ["Livraison offerte", 'OFFERT : Guide "Mieux Dormir"'],
     popular: false,
     normalUrl:
       "https://f8cebf-de.myshopify.com/products/pack-3-vitalite-90-jours-abonnement",
     singleUrl:
       "https://f8cebf-de.myshopify.com/products/pack-3-vitalite-90-jours-achat-unique",
   },
-  {
-    id: "four",
-    label: "Pack 4 – Pack Famille",
-    subtitle: "5 sachets - Stock longue durée",
-    price: "149.90",
-    originalPrice: "249.50",
-    savings: "99.60",
-    duration: "150 jours",
-    pricePerDay: "0,99 €",
-    delivery: "Express",
-    perks: ["Livraison GRATUITE", 'OFFERT : Guide "Mieux Dormir"', "OFFERT : Masque de Sommeil Premium", "OFFERT : Brume d'Oreiller Relaxante"],
-    popular: false,
-    normalUrl:
-      "https://f8cebf-de.myshopify.com/products/pack-4-pack-famille-150-jours-abonnement",
-    singleUrl:
-      "https://f8cebf-de.myshopify.com/products/pack-4-pack-famille-150-jours-achat-unique",
-  },
 ]
+
+const startingPrice = pricingOptions.reduce(
+  (min, opt) => Math.min(min, Number.parseFloat(opt.price)),
+  Number.POSITIVE_INFINITY,
+)
+
+const startingPriceLabel = `${startingPrice.toFixed(2).replace(".", ",")} €`
 
 export function HeroSection() {
   const [selected, setSelected] = useState("two")
@@ -104,27 +94,8 @@ export function HeroSection() {
 
   return (
     <section id="acheter" className="px-6 py-8 lg:py-12">
-      {/* Top - Badges, rating, title */}
+      {/* Top - Rating, title, CTA */}
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
-        {/* Origin & quality badges */}
-        <div className="mt-2 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
-          <span className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 font-medium text-primary">
-            <CheckCircle2 className="h-3.5 w-3.5" />
-            <span>Fabriqué en France</span>
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 font-medium text-primary">
-            <CheckCircle2 className="h-3.5 w-3.5" />
-            <span>Site de production certifié ISO</span>
-          </span>
-          <span className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-1">
-            <span>Sans sucre</span>
-            <span>•</span>
-            <span>Vegan</span>
-            <span>•</span>
-            <span>Sans gluten</span>
-          </span>
-        </div>
-
         {/* Rating */}
         <div className="flex items-center justify-center gap-2">
           <div className="flex">
@@ -137,23 +108,60 @@ export function HeroSection() {
           </span>
         </div>
 
+        {/* Social proof icons line */}
+        <div className="mt-2 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <Users className="h-4 w-4 text-primary" />
+            <span>{"12 000 clients"}</span>
+          </div>
+          <span className="opacity-40">•</span>
+          <div className="flex items-center gap-2">
+            <Heart className="h-4 w-4 text-primary" />
+            <span>{"Sans dépendance"}</span>
+          </div>
+          <span className="opacity-40">•</span>
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="h-4 w-4 text-primary" />
+            <span>{"Satisfait ou remboursé 60j"}</span>
+          </div>
+          <span className="opacity-40">•</span>
+          <div className="flex items-center gap-2">
+            <Leaf className="h-4 w-4 text-primary" />
+            <span>{"Vegan"}</span>
+          </div>
+        </div>
+
         {/* Title */}
         <div>
           <h1 className="font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
-            Sleep Gummies
+            {"Retrouve enfin des nuits profondes — et des matins légers."}
           </h1>
           <p className="mt-2 text-base text-muted-foreground">
-            {"Mélatonine + L-Théanine + Plantes apaisantes"}
+            {"Tu passes des heures à fixer le plafond ? Tu te réveilles épuisé ? Ce n'est pas une fatalité."}
           </p>
+
+          {/* Primary CTA visible immédiatement avec prix de départ */}
+          <div className="mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
+            <button
+              onClick={handleBuyNow}
+              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg"
+            >
+              {"Découvrir les Sleep Gummies"}
+            </button>
+            <span className="text-xs text-muted-foreground">
+              {"À partir de "}
+              <span className="font-semibold text-foreground">{startingPriceLabel}</span>
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Bottom - Product image & details */}
       <div className="mx-auto mt-10 grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-16">
-        {/* Left - Product Image */}
+        {/* Left - Product Image (sachet mis en avant) */}
         <div className="relative flex items-center justify-center">
           <div className="relative">
-            <Carousel className="w-full">
+            <Carousel className="w-full max-w-[460px]">
               <CarouselContent>
                 <CarouselItem>
                   <div className="overflow-hidden rounded-2xl bg-secondary aspect-square">
@@ -169,23 +177,16 @@ export function HeroSection() {
                     />
                   </div>
                 </CarouselItem>
-                <CarouselItem>
-                  <div className="overflow-hidden rounded-2xl bg-secondary aspect-square">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/produit_back.jpeg"
-                      alt="YOUY GUM Sleep Gummies - Face arrière"
-                      width={600}
-                      height={600}
-                      loading="eager"
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                </CarouselItem>
               </CarouselContent>
               <CarouselPrevious className="left-4" />
               <CarouselNext className="right-4" />
             </Carousel>
+
+            {/* Floating badge on product image */}
+            <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-primary/90 px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg">
+              <span className="text-sm">⭐</span>
+              <span>{"Best Seller • 12 000+ clients"}</span>
+            </div>
           </div>
         </div>
 
@@ -281,6 +282,11 @@ export function HeroSection() {
             ))}
           </div>
 
+          {/* Urgence douce sous le bloc pricing */}
+          <p className="mt-2 text-xs text-muted-foreground">
+            {"Offre de lancement — tarif fondateur disponible pour une durée limitée."}
+          </p>
+
           {/* Add to cart */}
           <button
             onClick={handleBuyNow}
@@ -289,18 +295,17 @@ export function HeroSection() {
             Acheter maintenant
           </button>
 
-          {/* Single Purchase Checkbox */}
-          <div className="flex items-center gap-3 rounded-lg border border-border bg-card/50 p-4">
+          {/* Single Purchase Checkbox - discrete legal-style note */}
+          <div className="mt-2 flex items-center justify-center gap-2 text-[11px] text-muted-foreground">
             <input
               type="checkbox"
               id="single-purchase"
               checked={singlePurchase}
               onChange={(e) => setSinglePurchase(e.target.checked)}
-              className="h-5 w-5 cursor-pointer accent-primary"
+              className="h-3.5 w-3.5 cursor-pointer accent-primary"
             />
-            <label htmlFor="single-purchase" className="flex flex-col cursor-pointer flex-1">
-              <span className="font-semibold text-foreground">Achat unique</span>
-              <span className="text-xs text-muted-foreground">Sans abonnement récurrent</span>
+            <label htmlFor="single-purchase" className="cursor-pointer">
+              Achat unique
             </label>
           </div>
         </div>

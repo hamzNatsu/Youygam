@@ -14,7 +14,7 @@ export function Navbar() {
           <a href="/" className="flex items-center gap-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/logo.jpeg"
+              src="/images/logo_dark.png"
               alt="YOUY GUM Logo"
               width={120}
               height={40}
