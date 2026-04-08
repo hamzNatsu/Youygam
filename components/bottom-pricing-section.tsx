@@ -16,9 +16,9 @@ const pricingOptions = [
     perks: [],
     popular: false,
     normalUrl:
-      "https://f8cebf-de.myshopify.com/products/pack-1-l-essai-30-jours-abonnement",
+      "https://f8cebf-de.myshopify.com/cart/52846096023888:1?selling_plan=689962549584",
     singleUrl:
-      "https://f8cebf-de.myshopify.com/products/pack-1-l-essai-30-jours-achat-unique",
+      "https://f8cebf-de.myshopify.com/cart/52846411710800:1",
   },
   {
     id: "two",
@@ -32,9 +32,9 @@ const pricingOptions = [
     perks: ['OFFERT : Guide "Mieux Dormir"'],
     popular: true,
     normalUrl:
-      "https://f8cebf-de.myshopify.com/products/pack-2-l-equilibre-60-jours-abonnement-1",
+      "https://f8cebf-de.myshopify.com/cart/52846583087440:1?selling_plan=689962582352",
     singleUrl:
-      "https://f8cebf-de.myshopify.com/products/pack-2-l-equilibre-60-jours-abonnement",
+      "https://f8cebf-de.myshopify.com/cart/52846096712016:1",
   },
   {
     id: "three",
@@ -48,9 +48,9 @@ const pricingOptions = [
     perks: ["Livraison offerte", 'OFFERT : Guide "Mieux Dormir"'],
     popular: false,
     normalUrl:
-      "https://f8cebf-de.myshopify.com/products/pack-3-vitalite-90-jours-abonnement",
+      "https://f8cebf-de.myshopify.com/cart/52846115488080:1?selling_plan=689962615120",
     singleUrl:
-      "https://f8cebf-de.myshopify.com/products/pack-3-vitalite-90-jours-achat-unique",
+      "https://f8cebf-de.myshopify.com/cart/52846389363024:1",
   },
 ]
 
