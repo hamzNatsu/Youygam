@@ -17,6 +17,14 @@ const benefits = [
   { icon: Sparkles, text: "Réveil frais et reposé, sans somnolence." },
 ]
 
+const productCarouselImages = [
+  "/product_carousel/1d6ff8f4011c411576bbdb542e64b0291947029.jpeg",
+  "/product_carousel/3635427a640aaf71214d6f57b133c8ea1901336.jpeg",
+  "/product_carousel/6d84f7d35275324437d77de3e38eee2f1593560.jpeg",
+  "/product_carousel/95626ffba4c9e25362a4555b620873eb1941106.jpeg",
+  "/product_carousel/df670059e73c3b778fd3ba10ab09d2ca1806703.jpeg",
+]
+
 const pricingOptions = [
   {
     id: "one",
@@ -78,11 +86,49 @@ const startingPrice = pricingOptions.reduce(
 
 const startingPriceLabel = `${startingPrice.toFixed(2).replace(".", ",")} €`
 
+const COUNTDOWN_STORAGE_KEY = "youygum_expiry"
+const STOCK_STORAGE_KEY = "youygum_fundator_stock"
+const STOCK_DATE_STORAGE_KEY = "youygum_fundator_stock_date"
+const STARTING_STOCK = 43
+const MIN_STOCK = 11
+
+function getOrCreateExpiry() {
+  if (typeof window === "undefined") return Date.now() + 48 * 60 * 60 * 1000
+
+  const saved = window.localStorage.getItem(COUNTDOWN_STORAGE_KEY)
+  if (saved && Date.now() < Number(saved)) return Number(saved)
+
+  const newExpiry = Date.now() + 48 * 60 * 60 * 1000
+  window.localStorage.setItem(COUNTDOWN_STORAGE_KEY, String(newExpiry))
+  return newExpiry
+}
+
+function getTodayKey() {
+  return new Date().toISOString().slice(0, 10)
+}
+
+function getOrCreateStock() {
+  if (typeof window === "undefined") return STARTING_STOCK
+
+  const todayKey = getTodayKey()
+  const savedDay = window.localStorage.getItem(STOCK_DATE_STORAGE_KEY)
+  const savedStock = window.localStorage.getItem(STOCK_STORAGE_KEY)
+
+  if (savedDay === todayKey && savedStock) {
+    return Math.max(MIN_STOCK, Number(savedStock))
+  }
+
+  window.localStorage.setItem(STOCK_DATE_STORAGE_KEY, todayKey)
+  window.localStorage.setItem(STOCK_STORAGE_KEY, String(STARTING_STOCK))
+  return STARTING_STOCK
+}
+
 export function HeroSection() {
   const [selected, setSelected] = useState("two")
-  const [singlePurchase, setSinglePurchase] = useState(false)
   const imageRef = useRef<HTMLDivElement | null>(null)
   const [imageInView, setImageInView] = useState(false)
+  const [countdown, setCountdown] = useState("48:00:00")
+  const [stockCount, setStockCount] = useState(STARTING_STOCK)
 
   useEffect(() => {
     if (!imageRef.current || typeof window === "undefined") return
@@ -103,11 +149,73 @@ export function HeroSection() {
     }
   }, [])
 
+  useEffect(() => {
+    const updateCountdown = () => {
+      const expiry = getOrCreateExpiry()
+      const diff = Math.max(0, expiry - Date.now())
+      const h = Math.floor(diff / 3600000)
+        .toString()
+        .padStart(2, "0")
+      const m = Math.floor((diff % 3600000) / 60000)
+        .toString()
+        .padStart(2, "0")
+      const s = Math.floor((diff % 60000) / 1000)
+        .toString()
+        .padStart(2, "0")
+
+      setCountdown(`${h}:${m}:${s}`)
+    }
+
+    const updateStock = () => {
+      const dayStock = getOrCreateStock()
+      setStockCount(dayStock)
+
+      const currentMinuteBucket = Math.floor((Date.now() % 86400000) / 240000)
+      const nextStock = Math.max(MIN_STOCK, STARTING_STOCK - currentMinuteBucket)
+      window.localStorage.setItem(STOCK_STORAGE_KEY, String(nextStock))
+      window.localStorage.setItem(STOCK_DATE_STORAGE_KEY, getTodayKey())
+      setStockCount(nextStock)
+    }
+
+    updateCountdown()
+    updateStock()
+
+    const intervalId = window.setInterval(() => {
+      updateCountdown()
+
+      const expiry = getOrCreateExpiry()
+      if (expiry <= Date.now()) {
+        window.localStorage.removeItem(COUNTDOWN_STORAGE_KEY)
+        updateCountdown()
+      }
+
+      const currentMinuteBucket = Math.floor((Date.now() % 86400000) / 240000)
+      const nextStock = Math.max(MIN_STOCK, STARTING_STOCK - currentMinuteBucket)
+      window.localStorage.setItem(STOCK_STORAGE_KEY, String(nextStock))
+      window.localStorage.setItem(STOCK_DATE_STORAGE_KEY, getTodayKey())
+      setStockCount(nextStock)
+    }, 1000)
+
+    return () => {
+      window.clearInterval(intervalId)
+    }
+  }, [])
+
   const handleBuyNow = () => {
     const option = pricingOptions.find((opt) => opt.id === selected)
     if (!option) return
 
-    const url = singlePurchase ? option.singleUrl : option.normalUrl
+    const url = option.normalUrl
+    if (!url) return
+
+    window.location.href = url
+  }
+
+  const handleSinglePurchase = () => {
+    const option = pricingOptions.find((opt) => opt.id === selected)
+    if (!option) return
+
+    const url = option.singleUrl
     if (!url) return
 
     window.location.href = url
@@ -167,7 +275,7 @@ export function HeroSection() {
               onClick={handleBuyNow}
               className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg"
             >
-              {"Découvrir les Sleep Gummies"}
+              {"Commencer mes nuits réparatrices →"}
             </button>
             <span className="text-xs text-muted-foreground">
               {"À partir de "}
@@ -187,17 +295,27 @@ export function HeroSection() {
               imageInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <div className="relative overflow-hidden rounded-3xl bg-secondary/80 p-4 shadow-2xl shadow-primary/20">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/produit_front.jpeg"
-                alt="YOUY GUM Sleep Gummies - Face avant"
-                width={720}
-                height={720}
-                loading="eager"
-                fetchPriority="high"
-                className="mx-auto h-auto w-full max-h-[460px] object-contain"
-              />
+            <div className="relative overflow-hidden rounded-3xl bg-secondary/80 p-4 shadow-2xl shadow-primary/20 md:p-5">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {productCarouselImages.map((src, index) => (
+                    <CarouselItem key={src}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={src}
+                        alt={`YOUY GUM Sleep Gummies - Vue produit ${index + 1}`}
+                        width={720}
+                        height={720}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchPriority={index === 0 ? "high" : "auto"}
+                        className="mx-auto h-auto w-full max-h-[460px] object-contain md:max-h-[500px]"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
             </div>
 
             {/* Floating badge on product image */}
@@ -221,17 +339,19 @@ export function HeroSection() {
           </div>
 
           {/* Pricing Options */}
-          <div className="flex flex-col gap-3">
+          <div id="pricing-block" className="flex flex-col gap-3 scroll-mt-24">
             {pricingOptions.map((opt) => (
               <button
                 key={opt.id}
                 onClick={() => setSelected(opt.id)}
                 className={`relative flex flex-col rounded-xl border-2 p-4 text-left transition-all ${
-                  selected === opt.id
-                    ? "border-primary bg-card shadow-md"
-                    : "border-border bg-card hover:border-primary/30"
+                  opt.popular
+                    ? "my-1 scale-105 border-transparent bg-[linear-gradient(var(--card),var(--card)),linear-gradient(135deg,#8B7AFF_0%,#56E3C6_100%)] [background-clip:padding-box,border-box] [background-origin:border-box] shadow-md"
+                    : selected === opt.id
+                      ? "border-primary bg-card shadow-md"
+                      : "border-border bg-card hover:border-primary/30"
                 } ${
-                  opt.popular ? "scale-105 my-1" : ""
+                  opt.popular && selected === opt.id ? "ring-2 ring-primary/30" : ""
                 }`}
               >
                 {/* Sachet Count Badge */}
@@ -239,9 +359,11 @@ export function HeroSection() {
                   {opt.subtitle.match(/^\d+\s+sachet[s]?/)?.[0] || opt.subtitle}
                 </span>
                 {opt.popular && (
-                  <span className="absolute -top-3 right-4 rounded-full bg-accent px-3 py-0.5 text-xs font-bold text-accent-foreground">
-                    Le + Populaire
-                  </span>
+                  <>
+                    <span className="absolute -top-3 right-4 rounded-full bg-accent px-3 py-0.5 text-xs font-bold text-accent-foreground shadow-sm shadow-accent/20">
+                      Le + Populaire
+                    </span>
+                  </>
                 )}
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-3">
@@ -256,6 +378,11 @@ export function HeroSection() {
                     </div>
                     <div>
                       <span className="font-semibold text-foreground">{opt.label}</span>
+                      {opt.popular && (
+                        <p className="mt-1 text-[11px] font-semibold text-primary">
+                          Choisi par 68% de nos clients
+                        </p>
+                      )}
                       <div className="mt-1 flex flex-wrap gap-2 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -277,14 +404,19 @@ export function HeroSection() {
                   </div>
                   <div className="text-right">
                     <span className="text-lg font-bold text-foreground">
-                      {singlePurchase ? opt.originalPrice : opt.price}
+                      {opt.price}
                       {""}
                       {"EUR"}
                     </span>
-                    <p className={`text-xs text-muted-foreground ${singlePurchase ? "" : "line-through"}`}>
-                      {singlePurchase ? opt.price : opt.originalPrice}
+                    <p className="text-xs text-muted-foreground line-through">
+                      {opt.originalPrice}
                       {"EUR"}
                     </p>
+                    {opt.popular && (
+                      <p className="mt-1 text-[10px] font-semibold text-primary">
+                        Résultats optimaux dès la 2e semaine
+                      </p>
+                    )}
                   </div>
                 </div>
                 {/* Perks */}
@@ -296,14 +428,35 @@ export function HeroSection() {
                     </div>
                   ))}
                 </div>
+                {opt.popular && (
+                  <div className="mt-3">
+                    <span className="inline-flex animate-pulse items-center rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-semibold text-emerald-500 ring-1 ring-emerald-500/30">
+                      ⚡ Plus que 12 au tarif fondateur
+                    </span>
+                  </div>
+                )}
               </button>
             ))}
           </div>
 
-          {/* Urgence douce sous le bloc pricing */}
-          <p className="mt-2 text-xs text-muted-foreground">
-            {"Offre de lancement — tarif fondateur disponible pour une durée limitée."}
-          </p>
+          {/* FOMO doux sous le bloc pricing */}
+          <div className="mt-2 grid gap-2 rounded-2xl border border-destructive/20 bg-destructive/5 p-4 text-xs text-foreground md:grid-cols-2 md:items-center">
+            <p className="font-semibold text-destructive">
+              {`Il reste ${stockCount} packs au tarif fondateur`}
+            </p>
+            <p className="md:text-right">
+              <span className="font-semibold text-foreground">Cette offre expire dans :</span>{" "}
+              <span className="font-mono font-bold text-destructive">{countdown}</span>
+            </p>
+          </div>
+
+          {/* Achat unique */}
+          <button
+            onClick={handleSinglePurchase}
+            className="w-full text-center text-xs text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Achat unique
+          </button>
 
           {/* Add to cart */}
           <button
@@ -312,20 +465,6 @@ export function HeroSection() {
           >
             Acheter maintenant
           </button>
-
-          {/* Single Purchase Checkbox - discrete legal-style note */}
-          <div className="mt-2 flex items-center justify-center gap-2 text-[11px] text-muted-foreground">
-            <input
-              type="checkbox"
-              id="single-purchase"
-              checked={singlePurchase}
-              onChange={(e) => setSinglePurchase(e.target.checked)}
-              className="h-3.5 w-3.5 cursor-pointer accent-primary"
-            />
-            <label htmlFor="single-purchase" className="cursor-pointer">
-              Achat unique
-            </label>
-          </div>
         </div>
       </div>
     </section>

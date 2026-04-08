@@ -6,7 +6,7 @@ export default function NotreFormulePage() {
           Notre formule scientifique
         </h1>
         <p className="mt-4 text-base text-muted-foreground">
-          Chaque gummy YOUY GUM Sleep a été conçue pour apporter un effet ciblé sur la qualité de votre sommeil,
+          Chaque gummy YOUY GUM Sleep a été conçue pour apporter un effet ciblé sur la qualité de ton sommeil,
           en s'appuyant sur des ingrédients et des dosages documentés par la littérature scientifique.
         </p>
 
@@ -58,7 +58,7 @@ export default function NotreFormulePage() {
             <h2 className="text-xl font-semibold text-foreground">Vitamine B6</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Cofacteur clé de la synthèse de la sérotonine puis de la mélatonine, la vitamine B6 soutient la
-              production naturelle de vos neurotransmetteurs du sommeil.</p>
+              production naturelle de tes neurotransmetteurs du sommeil.</p>
             <h3 className="mt-3 text-xs font-semibold uppercase tracking-wide text-foreground/80">
               Exemples de sources
             </h3>

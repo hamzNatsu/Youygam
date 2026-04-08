@@ -1,102 +1,71 @@
 import Image from "next/image"
-import { Star } from "lucide-react"
+
+const articleUrl =
+  "https://www.lemonde.fr/economie/article/2023/07/31/la-folie-des-gummies-ces-complements-alimentaires-aux-allures-de-bonbons_6183932_3234.html"
 
 export function ExpertSection() {
   return (
     <section className="bg-secondary px-6 py-16 md:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Text */}
-          <div>
+          <div className="lg:pt-2">
             <p className="text-sm font-medium text-muted-foreground">15 février 2026</p>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              {"L'avis des spécialistes du sommeil."}
+              {"La folie des « gummies », ces compléments alimentaires aux allures de bonbons"}
             </h2>
 
-            <div className="mt-6 rounded-2xl border border-accent/40 bg-card/80 p-6 shadow-lg shadow-accent/10">
-              <div className="mb-3 flex items-center gap-2 text-accent">
-                <Star className="h-4 w-4 fill-accent text-accent" />
-                <Star className="h-4 w-4 fill-accent text-accent" />
-                <Star className="h-4 w-4 fill-accent text-accent" />
-                <Star className="h-4 w-4 fill-accent text-accent" />
-                <Star className="h-4 w-4 fill-accent text-accent" />
-                <span className="ml-2 text-xs font-semibold uppercase tracking-wide">
-                  {"Avis d'experte"}
-                </span>
+            <article className="mt-6 rounded-2xl border border-border/70 bg-card/70 p-6 shadow-lg shadow-black/10 backdrop-blur-sm md:p-8">
+              <div className="mb-4 inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent">
+                {"Économie - Industrie pharmaceutique"}
               </div>
-              <blockquote className="italic leading-relaxed text-muted-foreground">
-                {'"Un sommeil de qualité commence par un bon équilibre hormonal et un système nerveux apaisé. Les Sleep Gummies de YOUY GUM sont conçus pour accompagner ces deux axes. Leur formule à base de mélatonine micro-dosée, de L-théanine et de plantes apaisantes offre une approche douce mais efficace. De nombreux patients m\'ont rapporté un endormissement plus rapide, une meilleure qualité de sommeil et un réveil sans lourdeur. Pour quiconque souhaite optimiser son sommeil de façon naturelle, c\'est une approche intelligente et fondée sur la science."'}
-              </blockquote>
-              <div className="mt-4 flex items-center gap-3 text-sm text-foreground">
-                <div className="h-8 w-8 rounded-full bg-accent/20" />
-                <div>
-                  <div className="font-semibold">Dr Sophie Laurent</div>
-                  <div className="text-xs text-muted-foreground">Médecin du sommeil, Paris</div>
-                </div>
-              </div>
-            </div>
+
+              <p className="text-[15px] leading-8 text-muted-foreground md:text-base">
+                {
+                  "Avec leur goût fruité et leur texture gélifiée, elles séduisent de plus en plus les adeptes de cocktails nutritionnels en quête de bien-être. Les « gummies », ces gommes à mâcher aux airs de bonbons et enrichies en concentrés de plantes, de vitamines ou de minéraux, envahissent les rayons des pharmacies et des supermarchés ces dernières années. De quoi ringardiser les vieilles gélules et comprimés ?"
+                }
+              </p>
+
+              <p className="mt-5 text-[15px] leading-8 text-muted-foreground md:text-base">
+                {
+                  "Saveur pomme, ananas, mûre, pêche, fraise… Les petits flacons aux couleurs pop, qui s'inspirent des codes de la confiserie, se déclinent pour tous les maux (sommeil, stress, vitalité, digestion, confort menstruel…) et à tous les prix sur les étagères. Leur coût varie en moyenne entre 10 euros et 20 euros la cure de trois à quatre semaines."
+                }
+              </p>
+
+              <p className="mt-5 text-[15px] leading-8 text-muted-foreground md:text-base">
+                {
+                  "Des tarifs qui ne semblent pas décourager les acheteurs, conquis par le côté pratique de ce format. Dans les pharmacies, où sont effectuées 54 % des ventes de compléments alimentaires en France, leur chiffre d'affaires a bondi de 16 millions d'euros en 2020 à 59 millions d'euros en 2022. « Les gummies occupent aujourd'hui 12 % de l'espace des officines consacré aux compléments alimentaires pour le sommeil, et déjà plus de 40 % de celui réservé aux multivitamines pour les enfants », observe Jean-Sébastien Eudes."
+                }
+              </p>
+            </article>
 
             <div className="mt-8">
               <a
-                href="#"
-                className="inline-block rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+                href={articleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
               >
-                Essayer les Sleep Gummies
+                <span>Afficher plus</span>
+                <span aria-hidden="true">→</span>
               </a>
-            </div>
-
-            <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <ShieldIcon />
-                Garanti 60 jours
-              </span>
-              <span className="flex items-center gap-1.5">
-                <TruckIcon />
-                Livraison Gratuite France
-              </span>
             </div>
           </div>
 
           {/* Expert Image */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative overflow-hidden rounded-2xl">
+          <div className="flex justify-center lg:justify-end lg:pt-16">
+            <div className="relative overflow-hidden rounded-2xl lg:-mt-6">
               <Image
                 src="/images/sleep-expert.jpg"
                 alt="Dr. Sophie Laurent, spécialiste du sommeil"
                 width={500}
                 height={600}
-                className="h-auto w-full max-w-md object-cover"
+                className="h-auto w-full max-w-2xl object-cover"
               />
-              <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/90 px-4 py-1.5 text-xs font-medium text-foreground shadow-lg">
-                <span className="flex items-center gap-1 text-accent">
-                  <Star className="h-3 w-3 fill-accent text-accent" />
-                  <Star className="h-3 w-3 fill-accent text-accent" />
-                  <Star className="h-3 w-3 fill-accent text-accent" />
-                  <Star className="h-3 w-3 fill-accent text-accent" />
-                  <Star className="h-3 w-3 fill-accent text-accent" />
-                </span>
-                <span>{"Recommandé par le Dr Laurent"}</span>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function ShieldIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="1.5">
-      <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-    </svg>
-  )
-}
-
-function TruckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="1.5">
-      <path d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-    </svg>
   )
 }

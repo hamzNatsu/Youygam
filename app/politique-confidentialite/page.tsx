@@ -27,9 +27,9 @@ export default function PolitiqueConfidentialite() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">1. Introduction</h2>
               <p className="text-foreground/80">
-                YOUY GUM accorde une grande importance à la protection de vos données personnelles. 
+                YOUY GUM accorde une grande importance à la protection de tes données personnelles. 
                 Cette politique de confidentialité explique comment nous collectons, utilisons, stockons 
-                et protégeons vos informations personnelles conformément au Règlement Général sur la 
+                et protégeons tes informations personnelles conformément au Règlement Général sur la 
                 Protection des Données (RGPD) et à la loi Informatique et Libertés.
               </p>
             </section>
@@ -80,14 +80,14 @@ export default function PolitiqueConfidentialite() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">4. Finalités du traitement</h2>
               <p className="text-foreground/80">
-                Vos données personnelles sont collectées et traitées pour les finalités suivantes :
+                Tes données personnelles sont collectées et traitées pour les finalités suivantes :
               </p>
               <ul className="ml-6 list-disc text-foreground/80">
-                <li>Gestion et traitement de vos commandes</li>
+                <li>Gestion et traitement de tes commandes</li>
                 <li>Livraison des produits</li>
                 <li>Service client et support</li>
                 <li>Gestion des paiements et facturation</li>
-                <li>Envoi de communications marketing (avec votre consentement)</li>
+                <li>Envoi de communications marketing (avec ton consentement)</li>
                 <li>Amélioration de nos services et de notre site web</li>
                 <li>Prévention de la fraude</li>
                 <li>Respect de nos obligations légales</li>
@@ -97,7 +97,7 @@ export default function PolitiqueConfidentialite() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">5. Base légale du traitement</h2>
               <p className="text-foreground/80">
-                Le traitement de vos données repose sur les bases légales suivantes :
+                Le traitement de tes données repose sur les bases légales suivantes :
               </p>
               <ul className="ml-6 list-disc text-foreground/80">
                 <li><strong>Exécution du contrat :</strong> traitement des commandes et livraisons</li>
@@ -110,13 +110,13 @@ export default function PolitiqueConfidentialite() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">6. Destinataires des données</h2>
               <p className="text-foreground/80">
-                Vos données personnelles peuvent être partagées avec :
+                Tes données personnelles peuvent être partagées avec :
               </p>
               <ul className="ml-6 list-disc text-foreground/80">
                 <li>Prestataires de services logistiques (transporteurs)</li>
                 <li>Prestataires de paiement sécurisé</li>
                 <li>Hébergeurs de notre site web</li>
-                <li>Outils de marketing et d'analyse (avec votre consentement)</li>
+                <li>Outils de marketing et d'analyse (avec ton consentement)</li>
                 <li>Autorités légales sur demande légale</li>
               </ul>
               <p className="mt-4 text-foreground/80">
@@ -128,7 +128,7 @@ export default function PolitiqueConfidentialite() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">7. Durée de conservation</h2>
               <p className="text-foreground/80">
-                Vos données personnelles sont conservées pendant les durées suivantes :
+                Tes données personnelles sont conservées pendant les durées suivantes :
               </p>
               <ul className="ml-6 list-disc text-foreground/80">
                 <li><strong>Données de compte client :</strong> pendant toute la durée de la relation commerciale et 3 ans après le dernier contact</li>
@@ -139,24 +139,24 @@ export default function PolitiqueConfidentialite() {
             </section>
 
             <section className="mt-8">
-              <h2 className="mb-4 text-2xl font-bold text-foreground">8. Vos droits</h2>
+              <h2 className="mb-4 text-2xl font-bold text-foreground">8. Tes droits</h2>
               <p className="text-foreground/80">
-                Conformément au RGPD, vous disposez des droits suivants :
+                Conformément au RGPD, tu disposes des droits suivants :
               </p>
               <ul className="ml-6 list-disc text-foreground/80">
-                <li><strong>Droit d'accès :</strong> obtenir une copie de vos données personnelles</li>
+                <li><strong>Droit d'accès :</strong> obtenir une copie de tes données personnelles</li>
                 <li><strong>Droit de rectification :</strong> corriger des données inexactes ou incomplètes</li>
-                <li><strong>Droit à l'effacement :</strong> demander la suppression de vos données</li>
-                <li><strong>Droit à la limitation :</strong> limiter le traitement de vos données</li>
-                <li><strong>Droit à la portabilité :</strong> récupérer vos données dans un format structuré</li>
-                <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données</li>
-                <li><strong>Droit de retirer votre consentement :</strong> à tout moment pour les traitements basés sur le consentement</li>
+                <li><strong>Droit à l'effacement :</strong> demander la suppression de tes données</li>
+                <li><strong>Droit à la limitation :</strong> limiter le traitement de tes données</li>
+                <li><strong>Droit à la portabilité :</strong> récupérer tes données dans un format structuré</li>
+                <li><strong>Droit d'opposition :</strong> t'opposer au traitement de tes données</li>
+                <li><strong>Droit de retirer ton consentement :</strong> à tout moment pour les traitements basés sur le consentement</li>
               </ul>
               <p className="mt-4 text-foreground/80">
                 Pour exercer ces droits, contactez-nous à : <strong>contact@youygum.fr</strong>
               </p>
               <p className="text-foreground/80">
-                Vous disposez également du droit d'introduire une réclamation auprès de la CNIL 
+                Tu disposes également du droit d'introduire une réclamation auprès de la CNIL 
                 (Commission Nationale de l'Informatique et des Libertés).
               </p>
             </section>
@@ -164,16 +164,16 @@ export default function PolitiqueConfidentialite() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">9. Cookies</h2>
               <p className="text-foreground/80">
-                Notre site utilise des cookies pour améliorer votre expérience de navigation. Lors de 
-                votre première visite, un bandeau vous permet d'accepter ou de refuser les cookies non 
-                essentiels. Vous pouvez modifier vos préférences à tout moment via les paramètres de 
-                votre navigateur.
+                Notre site utilise des cookies pour améliorer ton expérience de navigation. Lors de 
+                ta première visite, un bandeau te permet d'accepter ou de refuser les cookies non 
+                essentiels. Tu peux modifier tes préférences à tout moment via les paramètres de 
+                ton navigateur.
               </p>
               <h3 className="mb-2 mt-4 text-xl font-semibold text-foreground">Types de cookies utilisés :</h3>
               <ul className="ml-6 list-disc text-foreground/80">
                 <li><strong>Cookies essentiels :</strong> nécessaires au fonctionnement du site</li>
                 <li><strong>Cookies analytiques :</strong> pour analyser l'utilisation du site</li>
-                <li><strong>Cookies marketing :</strong> pour personnaliser les publicités (avec votre consentement)</li>
+                <li><strong>Cookies marketing :</strong> pour personnaliser les publicités (avec ton consentement)</li>
               </ul>
             </section>
 
@@ -181,7 +181,7 @@ export default function PolitiqueConfidentialite() {
               <h2 className="mb-4 text-2xl font-bold text-foreground">10. Sécurité des données</h2>
               <p className="text-foreground/80">
                 Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour 
-                protéger vos données personnelles contre la perte, l'utilisation abusive, l'accès non 
+                protéger tes données personnelles contre la perte, l'utilisation abusive, l'accès non 
                 autorisé, la divulgation, l'altération ou la destruction :
               </p>
               <ul className="ml-6 list-disc text-foreground/80">
@@ -195,7 +195,7 @@ export default function PolitiqueConfidentialite() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">11. Transfert de données hors UE</h2>
               <p className="text-foreground/80">
-                Vos données personnelles sont stockées et traitées dans l'Union Européenne. Si un 
+                Tes données personnelles sont stockées et traitées dans l'Union Européenne. Si un 
                 transfert hors UE est nécessaire, nous nous assurons que des garanties appropriées sont 
                 en place (clauses contractuelles types de la Commission Européenne, etc.).
               </p>
@@ -205,7 +205,7 @@ export default function PolitiqueConfidentialite() {
               <h2 className="mb-4 text-2xl font-bold text-foreground">12. Modifications de la politique</h2>
               <p className="text-foreground/80">
                 Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. 
-                En cas de modification substantielle, nous vous en informerons par email ou via un avis 
+                En cas de modification substantielle, nous t'en informerons par email ou via un avis 
                 sur notre site web. La version à jour sera toujours disponible sur cette page.
               </p>
             </section>
@@ -213,8 +213,8 @@ export default function PolitiqueConfidentialite() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">13. Contact</h2>
               <p className="text-foreground/80">
-                Pour toute question concernant cette politique de confidentialité ou le traitement de vos 
-                données personnelles, vous pouvez nous contacter :
+                Pour toute question concernant cette politique de confidentialité ou le traitement de tes 
+                données personnelles, tu peux nous contacter :
               </p>
               <ul className="ml-6 list-disc text-foreground/80">
                 <li>Email : contact@youygum.fr</li>

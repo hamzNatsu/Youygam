@@ -2,53 +2,85 @@
 
 import { useEffect, useState } from "react"
 
+import { useIsMobile } from "@/hooks/use-mobile"
+
+const EXIT_INTENT_STORAGE_KEY = "youygum_exit_intent_shown"
+
 export function ExitIntentBanner() {
   const [visible, setVisible] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (typeof window === "undefined") return
-    const alreadyShown = window.localStorage.getItem("youygum_exit_intent_shown")
+    const alreadyShown = window.localStorage.getItem(EXIT_INTENT_STORAGE_KEY)
     if (alreadyShown === "1") return
 
+    const openExitIntent = () => {
+      setVisible(true)
+      window.localStorage.setItem(EXIT_INTENT_STORAGE_KEY, "1")
+    }
+
     const handleMouseOut = (event: MouseEvent) => {
+      if (isMobile) return
       if (event.clientY <= 0 && !visible) {
-        setVisible(true)
-        window.localStorage.setItem("youygum_exit_intent_shown", "1")
+        openExitIntent()
       }
     }
 
+    let lastY = window.scrollY
+    let lastTs = Date.now()
+    const handleScroll = () => {
+      if (!isMobile || visible) return
+
+      const now = Date.now()
+      const currentY = window.scrollY
+      const deltaY = currentY - lastY
+      const deltaTime = now - lastTs
+
+      // On mobile, a sharp upward movement usually signals an intent to leave.
+      if (deltaY < -90 && deltaTime > 0 && deltaTime < 220 && currentY > 180) {
+        openExitIntent()
+      }
+
+      lastY = currentY
+      lastTs = now
+    }
+
     window.addEventListener("mouseout", handleMouseOut)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+
     return () => {
       window.removeEventListener("mouseout", handleMouseOut)
+      window.removeEventListener("scroll", handleScroll)
     }
-  }, [visible])
+  }, [isMobile, visible])
 
   if (!visible) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-4">
-      <div className="flex w-full max-w-2xl items-center justify-between gap-4 rounded-2xl border border-accent/40 bg-card/95 p-4 shadow-2xl shadow-accent/20">
-        <div className="text-xs md:text-sm text-foreground">
-          <div className="font-semibold text-accent">
-            {"Avant de partir"}
-          </div>
-          <div className="mt-1">
-            {"Ta première commande à -10 % — offre de lancement réservée aux nouveaux clients."}
-          </div>
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-background/70 p-4 backdrop-blur-sm">
+      <div className="w-full max-w-lg rounded-2xl border border-accent/40 bg-card p-6 shadow-2xl shadow-accent/20">
+        <div className="text-center text-foreground">
+          <h3 className="text-xl font-bold text-accent">Encore des nuits difficiles ? On t&apos;offre une aide.</h3>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Utilise le code <span className="font-bold text-foreground">DEBUT10</span> pour -10% sur ta première commande.
+          </p>
         </div>
-        <div className="flex items-center gap-3">
+
+        <div className="mt-5 flex flex-col items-center gap-3">
           <a
             href="#acheter"
-            className="rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-md hover:bg-primary/90"
+            onClick={() => setVisible(false)}
+            className="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-colors hover:bg-primary/90"
           >
-            {"Profiter de l'offre"}
+            J&apos;accepte — économiser 10%
           </a>
           <button
             type="button"
             onClick={() => setVisible(false)}
-            className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground hover:text-foreground"
+            className="text-xs text-muted-foreground underline decoration-muted-foreground/50 underline-offset-2 hover:text-foreground"
           >
-            {"Fermer"}
+            Non merci, je préfère continuer à mal dormir.
           </button>
         </div>
       </div>

@@ -21,14 +21,14 @@ export function CtaSection() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
-            {"En combinant des ingrédients naturels cliniquement étudiés, vous pouvez restaurer votre cycle de sommeil à sa source : en calmant le système nerveux, en régulant la mélatonine et en préparant votre corps à un repos profond et réparateur."}
+            {"En combinant des ingrédients naturels cliniquement étudiés, tu peux restaurer ton cycle de sommeil à sa source : en calmant le système nerveux, en régulant la mélatonine et en préparant ton corps à un repos profond et réparateur."}
           </p>
 
           <a
             href="#"
             className="mt-8 inline-block rounded-xl bg-accent px-10 py-4 text-base font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-xl"
           >
-            Essayer les Sleep Gummies
+            Reprendre le contrôle de mes nuits
           </a>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-primary-foreground/70">

@@ -14,8 +14,9 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'YOUY GUM - Sleep Gummies | Sommeil Naturel & Reparateur',
-  description: 'Decouvrez YOUY GUM, les gummies premium pour un sommeil naturel et reparateur. Formule scientifiquement concue avec melatonine, L-theanine et plantes apaisantes. Fabrique en France.',
+  title: "YOUY GUM — Sleep Gummies | S'endormir en 18 min, naturellement",
+  description:
+    'Decouvre YOUY GUM, les gummies premium pour un sommeil naturel et reparateur. Formule naturelle sans dependance · 12 000 clients · Satisfait ou rembourse 60 jours.',
   generator: 'v0.app',
   icons: {
     icon: [

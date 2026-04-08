@@ -8,7 +8,7 @@ const ingredients = [
     name: "Mélatonine (1mg micro-dosée)",
     subtitle: "Régulateur naturel du cycle circadien",
     description:
-      "La mélatonine est l'hormone naturellement produite par votre cerveau pour signaler qu'il est temps de dormir. Notre micro-dosage de 1mg respecte les rythmes biologiques, favorisant un endormissement doux sans dépendance ni somnolence matinale.",
+      "La mélatonine est l'hormone naturellement produite par ton cerveau pour signaler qu'il est temps de dormir. Notre micro-dosage de 1mg respecte les rythmes biologiques, favorisant un endormissement doux sans dépendance ni somnolence matinale.",
   },
   {
     name: "L-Théanine (200mg)",
@@ -26,7 +26,7 @@ const ingredients = [
     name: "Vitamine B6 (1.4mg)",
     subtitle: "Cofacteur essentiel de la melatonine",
     description:
-      "La vitamine B6 est indispensable à la conversion du tryptophane en sérotonine, puis en mélatonine. Elle optimise la production naturelle de votre hormone du sommeil pour des nuits plus régulières.",
+      "La vitamine B6 est indispensable à la conversion du tryptophane en sérotonine, puis en mélatonine. Elle optimise la production naturelle de ton hormone du sommeil pour des nuits plus régulières.",
   },
   {
     name: "Extrait de Camomille",

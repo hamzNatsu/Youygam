@@ -117,15 +117,9 @@
 }
 
 .animate-scroll {
-  animation: scroll 7s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 .animate-scroll:hover {
   animation-play-state: paused;
-}
-
-@media (max-width: 768px) {
-  .animate-scroll {
-    animation: scroll 4s linear infinite;
-  }
 }

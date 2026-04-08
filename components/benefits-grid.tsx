@@ -6,7 +6,7 @@ const benefitCards = [
     icon: Moon,
     title: "Endormissement Rapide",
     description:
-      "La mélatonine naturelle et la L-théanine agissent en synergie pour calmer le système nerveux, vous aidant à vous endormir plus vite, sans agitation.",
+      "La mélatonine naturelle et la L-théanine agissent en synergie pour calmer le système nerveux, t'aidant à t'endormir plus vite, sans agitation.",
     position: "top-left" as const,
   },
   {
@@ -27,7 +27,7 @@ const benefitCards = [
     icon: Sun,
     title: "Réveil Frais & Énergisé",
     description:
-      "Contrairement aux somnifères, nos gummies ne provoquent aucune somnolence au réveil. Vous vous levez reposé, alerte et prêt pour la journée.",
+      "Contrairement aux somnifères, nos gummies ne provoquent aucune somnolence au réveil. Tu te lèves reposé, alerte et prêt pour la journée.",
     position: "bottom-right" as const,
   },
 ]

@@ -123,12 +123,12 @@ export default function MentionsLegales() {
               </p>
               <p className="mt-4 text-foreground/80">
                 Conformément à la loi « Informatique et Libertés » du 6 janvier 1978 modifiée et au 
-                Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit 
+                Règlement Général sur la Protection des Données (RGPD), tu disposes d'un droit 
                 d'accès, de rectification, de suppression et d'opposition aux données personnelles 
-                vous concernant.
+                te concernant.
               </p>
               <p className="mt-4 text-foreground/80">
-                Pour plus d'informations sur la protection des données et l'exercice de vos droits, 
+                Pour plus d'informations sur la protection des données et l'exercice de tes droits, 
                 consultez notre{" "}
                 <a href="/politique-confidentialite" className="text-primary underline hover:no-underline">
                   Politique de Confidentialité
@@ -140,8 +140,8 @@ export default function MentionsLegales() {
               <h2 className="mb-4 text-2xl font-bold text-foreground">7. Cookies</h2>
               <p className="text-foreground/80">
                 Le site utilise des cookies pour améliorer l'expérience utilisateur et analyser le 
-                trafic. Lors de votre première visite, un bandeau vous informe de l'utilisation de 
-                cookies et vous permet d'accepter ou de refuser leur dépôt.
+                trafic. Lors de ta première visite, un bandeau t'informe de l'utilisation de 
+                cookies et te permet d'accepter ou de refuser leur dépôt.
               </p>
               <p className="mt-4 text-foreground/80">
                 Pour plus d'informations sur les cookies utilisés, consultez notre{" "}
@@ -186,7 +186,7 @@ export default function MentionsLegales() {
             <section className="mt-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">11. Contact</h2>
               <p className="text-foreground/80">
-                Pour toute question concernant ces mentions légales, vous pouvez nous contacter :
+                Pour toute question concernant ces mentions légales, tu peux nous contacter :
               </p>
               <ul className="ml-6 list-disc text-foreground/80">
                 <li><strong>Email :</strong> contact@youygum.fr</li>

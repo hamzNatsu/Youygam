@@ -24,7 +24,7 @@ export function ScienceSection() {
         </div>
 
         <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          {"Notre formule premium contient exactement ce dont votre corps a besoin pour :"}
+          {"Notre formule premium contient exactement ce dont ton corps a besoin pour :"}
         </p>
       </div>
     </section>

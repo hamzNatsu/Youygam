@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Plus, Minus } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 
 const faqs = [
   {
@@ -22,12 +22,12 @@ const faqs = [
   {
     question: "Quels sont les effets secondaires possibles ?",
     answer:
-      "Les ingredients de YOUY GUM sont naturels et generalement bien toleres. Certaines personnes peuvent ressentir une legere somnolence, ce qui est l'effet recherche. Nous recommandons de ne pas depasser la dose conseillee et de consulter votre medecin si vous etes enceinte, allaitante ou sous traitement.",
+      "Les ingredients de YOUY GUM sont naturels et generalement bien toleres. Certaines personnes peuvent ressentir une legere somnolence, ce qui est l'effet recherche. Nous recommandons de ne pas depasser la dose conseillee et de consulter ton medecin si tu es enceinte, allaitante ou sous traitement.",
   },
   {
     question: "Puis-je les prendre avec d'autres medicaments ou complements ?",
     answer:
-      "Bien que nos ingredients soient naturels, nous recommandons de consulter votre medecin ou pharmacien avant de combiner les gummies avec d'autres medicaments, en particulier les sedatifs, anxiolytiques ou anticoagulants.",
+      "Bien que nos ingredients soient naturels, nous recommandons de consulter ton medecin ou pharmacien avant de combiner les gummies avec d'autres medicaments, en particulier les sedatifs, anxiolytiques ou anticoagulants.",
   },
   {
     question: "Combien de temps faut-il pour voir des resultats ?",
@@ -57,7 +57,13 @@ const faqs = [
 ]
 
 export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [openIndexes, setOpenIndexes] = useState<number[]>([0, 5])
+
+  const toggleItem = (index: number) => {
+    setOpenIndexes((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
+    )
+  }
 
   return (
     <section id="faq" className="bg-card px-6 py-16 md:py-24">
@@ -73,15 +79,19 @@ export function FaqSection() {
               className="overflow-hidden rounded-xl border border-border bg-background"
             >
               <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                onClick={() => toggleItem(i)}
                 className="flex w-full items-center justify-between px-6 py-4 text-left"
               >
                 <span className="pr-4 text-sm font-medium text-foreground md:text-base">{faq.question}</span>
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  {openIndex === i ? <Minus className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
+                  <ChevronRight
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      openIndexes.includes(i) ? "rotate-90" : "rotate-0"
+                    }`}
+                  />
                 </div>
               </button>
-              {openIndex === i && (
+              {openIndexes.includes(i) && (
                 <div className="border-t border-border px-6 pb-5 pt-3">
                   <p className="text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
                 </div>
@@ -93,10 +103,10 @@ export function FaqSection() {
         {/* Final CTA */}
         <div className="mt-12 flex flex-col items-center gap-4">
           <a
-            href="#"
+            href="#acheter"
             className="inline-block rounded-xl bg-primary px-10 py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
           >
-            Essayer les Sleep Gummies
+            Essayer 30 jours sans risque
           </a>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
