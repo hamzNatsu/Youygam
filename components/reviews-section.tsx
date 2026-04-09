@@ -19,7 +19,7 @@ const reviews = [
     text: "J'étais sceptique au début, mais dès la première semaine j'ai senti une différence. Mon cerveau s'arrête enfin de tourner le soir. Le goût est agréable et l'effet est rapide. Je recommande vivement à tous ceux qui ont du mal à dormir.",
   },
   {
-    name: "Claire M.",
+    name: "Antoine M.",
     location: "Bordeaux",
     image: "/images/reviews/claire.jpg",
     rating: 5,
