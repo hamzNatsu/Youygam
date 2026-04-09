@@ -14,9 +14,9 @@ const simpleSolution = [
 
 export function ProblemSolutionSection() {
   return (
-    <section className="px-6 py-14 md:py-20">
+    <section id="probleme" className="px-6 py-14 md:py-20 scroll-mt-24">
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
-        <article className="rounded-2xl border border-border/60 bg-card/70 p-6 shadow-lg shadow-black/10 backdrop-blur-sm">
+        <article id="vous-vous-reconnaissez" className="rounded-2xl border border-border/60 bg-card/70 p-6 shadow-lg shadow-black/10 backdrop-blur-sm scroll-mt-24">
           <div className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1 text-xs font-semibold text-destructive">
             <Moon className="h-3.5 w-3.5" />
             Vous vous reconnaissez ?
@@ -32,7 +32,7 @@ export function ProblemSolutionSection() {
           </ul>
         </article>
 
-        <article className="rounded-2xl border border-border/60 bg-card/70 p-6 shadow-lg shadow-black/10 backdrop-blur-sm">
+        <article id="pourquoi-ca-arrive" className="rounded-2xl border border-border/60 bg-card/70 p-6 shadow-lg shadow-black/10 backdrop-blur-sm scroll-mt-24">
           <div className="inline-flex items-center gap-2 rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
             <Brain className="h-3.5 w-3.5" />
             Pourquoi ça arrive
@@ -47,7 +47,7 @@ export function ProblemSolutionSection() {
           </p>
         </article>
 
-        <article className="rounded-2xl border border-border/60 bg-card/70 p-6 shadow-lg shadow-black/10 backdrop-blur-sm">
+        <article id="solution-simple" className="rounded-2xl border border-border/60 bg-card/70 p-6 shadow-lg shadow-black/10 backdrop-blur-sm scroll-mt-24">
           <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-500">
             <Zap className="h-3.5 w-3.5" />
             La solution simple

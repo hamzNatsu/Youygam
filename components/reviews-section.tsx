@@ -30,7 +30,7 @@ const reviews = [
 
 export function ReviewsSection() {
   return (
-    <section className="bg-background px-6 py-16 md:py-24">
+    <section id="avis" className="bg-background px-6 py-16 md:py-24 scroll-mt-24">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-center font-serif text-3xl font-bold text-foreground md:text-4xl">
           {"Ce que disent nos clients"}

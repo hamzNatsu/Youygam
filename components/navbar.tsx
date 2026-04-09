@@ -4,6 +4,14 @@ import { useState } from "react"
 import { Search, Menu, X } from "lucide-react"
 import { ScrollingBanner } from "./scrolling-banner"
 
+const navLinks = [
+  { href: "#hero-section", label: "Hero section", eyebrow: "01" },
+  { href: "#probleme", label: "Problème & solution", eyebrow: "02" },
+  { href: "#comment-ca-marche", label: "Comment ça marche", eyebrow: "03" },
+  { href: "#avis", label: "Avis", eyebrow: "04" },
+  { href: "#faq", label: "FAQ", eyebrow: "05" },
+]
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -22,12 +30,19 @@ export function Navbar() {
             />
           </a>
 
-          <div className="hidden items-center gap-8 md:flex">
-            <a href="#benefits" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Bienfaits</a>
-            <a href="#ingredients" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Ingrédients</a>
-            <a href="/notre-formule" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Notre formule</a>
-            <a href="#reviews" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Avis</a>
-            <a href="#faq" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">FAQ</a>
+          <div className="hidden items-center gap-3 md:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="group inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-secondary hover:text-foreground"
+              >
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary/70 group-hover:text-primary">
+                  {link.eyebrow}
+                </span>
+                <span>{link.label}</span>
+              </a>
+            ))}
           </div>
 
           <div className="flex items-center gap-3">
@@ -46,12 +61,20 @@ export function Navbar() {
 
         {mobileOpen && (
           <div className="border-t border-border bg-card px-6 py-4 md:hidden">
-            <div className="flex flex-col gap-4">
-              <a href="#benefits" className="text-sm font-medium text-muted-foreground" onClick={() => setMobileOpen(false)}>Bienfaits</a>
-              <a href="#ingredients" className="text-sm font-medium text-muted-foreground" onClick={() => setMobileOpen(false)}>Ingrédients</a>
-              <a href="/notre-formule" className="text-sm font-medium text-muted-foreground" onClick={() => setMobileOpen(false)}>Notre formule</a>
-              <a href="#reviews" className="text-sm font-medium text-muted-foreground" onClick={() => setMobileOpen(false)}>Avis</a>
-              <a href="#faq" className="text-sm font-medium text-muted-foreground" onClick={() => setMobileOpen(false)}>FAQ</a>
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                    {link.eyebrow}
+                  </span>
+                  <span>{link.label}</span>
+                </a>
+              ))}
             </div>
           </div>
         )}

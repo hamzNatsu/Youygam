@@ -22,7 +22,7 @@ export function HowItWorksSection() {
   ]
 
   return (
-    <section className="bg-background py-16">
+    <section id="comment-ca-marche" className="bg-background py-16 scroll-mt-24">
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center">
           <h2 className="font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl">

@@ -226,7 +226,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="px-6 py-8 lg:py-12">
+    <section id="hero-section" className="px-6 py-8 lg:py-12 scroll-mt-24">
       {/* Top - Rating, title, CTA */}
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
         {/* Rating */}
