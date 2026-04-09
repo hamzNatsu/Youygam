@@ -15,8 +15,8 @@ export function MissionSection() {
             <Image
               src="/images/youy-lifestyle.jpeg"
               alt="Clients YOUY GUM - Femme detendue, gummies Stress Relief, et couple dormant paisiblement"
-              width={800}
-              height={534}
+              width={700}
+              height={450}
               className="h-full w-full object-cover"
             />
           </div>

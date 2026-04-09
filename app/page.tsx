@@ -1,6 +1,7 @@
 import Script from "next/script"
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
+import { ProblemSolutionSection } from "@/components/problem-solution-section"
 import { PricingComparison } from "@/components/pricing-comparison"
 import { HowItWorksSection } from "@/components/how-it-works-section"
 import { SocialProofSection } from "@/components/social-proof-section"
@@ -113,6 +114,7 @@ export default function Home() {
       />
       <Navbar />
       <HeroSection />
+      <ProblemSolutionSection />
       <HowItWorksSection />
       <PricingComparison />
       <SocialProofSection />

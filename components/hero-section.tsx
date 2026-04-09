@@ -211,6 +211,10 @@ export function HeroSection() {
     window.location.href = url
   }
 
+  const handleGoToAcheter = () => {
+    window.location.href = "#acheter"
+  }
+
   const handleSinglePurchase = () => {
     const option = pricingOptions.find((opt) => opt.id === selected)
     if (!option) return
@@ -222,7 +226,7 @@ export function HeroSection() {
   }
 
   return (
-    <section id="acheter" className="px-6 py-8 lg:py-12">
+    <section className="px-6 py-8 lg:py-12">
       {/* Top - Rating, title, CTA */}
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
         {/* Rating */}
@@ -272,7 +276,7 @@ export function HeroSection() {
           {/* Primary CTA visible immédiatement avec prix de départ */}
           <div className="mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
             <button
-              onClick={handleBuyNow}
+              onClick={handleGoToAcheter}
               className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg"
             >
               {"Commencer mes nuits réparatrices →"}
@@ -286,7 +290,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom - Product image & details */}
-      <div className="mx-auto mt-10 grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-16">
+      <div id="acheter" className="mx-auto mt-10 grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Left - Product Image (sachet mis en avant, plus grand, sticky + animation à l'apparition) */}
         <div className="relative flex items-start justify-center lg:sticky lg:top-24">
           <div
@@ -439,6 +443,14 @@ export function HeroSection() {
             ))}
           </div>
 
+          {/* Achat unique */}
+          <button
+            onClick={handleSinglePurchase}
+            className="w-full text-center text-xs text-white"
+          >
+            Achat unique
+          </button>
+
           {/* FOMO doux sous le bloc pricing */}
           <div className="mt-2 grid gap-2 rounded-2xl border border-destructive/20 bg-destructive/5 p-4 text-xs text-foreground md:grid-cols-2 md:items-center">
             <p className="font-semibold text-destructive">
@@ -449,14 +461,6 @@ export function HeroSection() {
               <span className="font-mono font-bold text-destructive">{countdown}</span>
             </p>
           </div>
-
-          {/* Achat unique */}
-          <button
-            onClick={handleSinglePurchase}
-            className="w-full text-center text-xs text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Achat unique
-          </button>
 
           {/* Add to cart */}
           <button
