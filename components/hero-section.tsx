@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Star, Moon, Brain, Heart, Sparkles, Users, CheckCircle2, Leaf } from "lucide-react"
+import { Star, Moon, Brain, Heart, Sparkles, CheckCircle2, Package, Truck, BookOpen, Gift } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
@@ -19,24 +19,24 @@ const benefits = [
 
 const productCarouselImages = [
   "/product_carousel/1d6ff8f4011c411576bbdb542e64b0291947029.jpeg",
+  "/product_carousel/df670059e73c3b778fd3ba10ab09d2ca1806703.jpeg",
   "/product_carousel/3635427a640aaf71214d6f57b133c8ea1901336.jpeg",
   "/product_carousel/6d84f7d35275324437d77de3e38eee2f1593560.jpeg",
   "/product_carousel/95626ffba4c9e25362a4555b620873eb1941106.jpeg",
-  "/product_carousel/df670059e73c3b778fd3ba10ab09d2ca1806703.jpeg",
 ]
 
 const pricingOptions = [
   {
     id: "one",
-    label: "Pack 1 – L'Essai 30 Jours",
-    subtitle: "1 sachet",
+    label: "L'Essai 30 Jours",
+    subtitle: "Pack 1",
     price: "44.90",
     originalPrice: "49.90",
     savings: "5.00",
-    duration: "30 jours",
+    duration: "1 sachet",
     pricePerDay: "1,49 €",
-    delivery: "Standard",
-    perks: [],
+    delivery: "",
+    perks: ['Livraison Standard Gratuite'],
     popular: false,
     normalUrl:
       "https://f8cebf-de.myshopify.com/cart/52846096023888:1?selling_plan=689962549584",
@@ -45,15 +45,15 @@ const pricingOptions = [
   },
   {
     id: "two",
-    label: "Pack 2 – L'Équilibre 60 Jours",
-    subtitle: "2 sachets",
+    label: "L'Équilibre 60 Jours",
+    subtitle: "Pack 2",
     price: "74.90",
     originalPrice: "99.80",
     savings: "24.90",
-    duration: "60 jours",
+    duration: "2 sachets",
     pricePerDay: "1,24 €",
-    delivery: "Standard",
-    perks: ['OFFERT : Guide "Mieux Dormir"'],
+    delivery: "",
+    perks: ['OFFERT : Guide "Mieux Dormir"','Livraison Standard Gratuite'],
     popular: true,
     normalUrl:
       "https://f8cebf-de.myshopify.com/cart/52846583087440:1?selling_plan=689962582352",
@@ -62,15 +62,15 @@ const pricingOptions = [
   },
   {
     id: "three",
-    label: "Pack 3 – Vitalité+ 90 Jours",
-    subtitle: "3 sachets",
+    label: "Vitalité+ 90 Jours",
+    subtitle: "Pack 3",
     price: "99.90",
     originalPrice: "149.70",
     savings: "49.80",
-    duration: "90 jours",
+    duration: "3 sachets",
     pricePerDay: "1,11 €",
-    delivery: "Express",
-    perks: ["Livraison offerte", 'OFFERT : Guide "Mieux Dormir"'],
+    delivery: "",
+    perks: ["Livraison Express Gratuite", 'OFFERT : Guide "Mieux Dormir"'],
     popular: false,
     normalUrl:
       "https://f8cebf-de.myshopify.com/cart/52846115488080:1?selling_plan=689962615120",
@@ -84,13 +84,21 @@ const startingPrice = pricingOptions.reduce(
   Number.POSITIVE_INFINITY,
 )
 
-const startingPriceLabel = `${startingPrice.toFixed(2).replace(".", ",")} €`
+const startingPriceLabel = '1,11 € / jour'
 
 const COUNTDOWN_STORAGE_KEY = "youygum_expiry"
 const STOCK_STORAGE_KEY = "youygum_fundator_stock"
 const STOCK_DATE_STORAGE_KEY = "youygum_fundator_stock_date"
 const STARTING_STOCK = 43
 const MIN_STOCK = 11
+
+function getPerkIcon(perk: string) {
+  const lower = perk.toLowerCase()
+  if (lower.includes("livraison")) return Truck
+  if (lower.includes("guide") || lower.includes("ebook")) return BookOpen
+  if (lower.includes("offert") || lower.includes("gift")) return Gift
+  return CheckCircle2
+}
 
 function getOrCreateExpiry() {
   if (typeof window === "undefined") return Date.now() + 48 * 60 * 60 * 1000
@@ -212,7 +220,7 @@ export function HeroSection() {
   }
 
   const handleGoToAcheter = () => {
-    window.location.href = "#acheter"
+    window.location.href = "https://f8cebf-de.myshopify.com/cart/52846583087440:1?selling_plan=689962582352"
   }
 
   const handleSinglePurchase = () => {
@@ -241,36 +249,16 @@ export function HeroSection() {
           </span>
         </div>
 
-        {/* Social proof icons line */}
-        <div className="mt-2 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <Users className="h-4 w-4 text-primary" />
-            <span>{"12 000 clients"}</span>
-          </div>
-          <span className="opacity-40">•</span>
-          <div className="flex items-center gap-2">
-            <Heart className="h-4 w-4 text-primary" />
-            <span>{"Sans dépendance"}</span>
-          </div>
-          <span className="opacity-40">•</span>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-4 w-4 text-primary" />
-            <span>{"Satisfait ou remboursé 60j"}</span>
-          </div>
-          <span className="opacity-40">•</span>
-          <div className="flex items-center gap-2">
-            <Leaf className="h-4 w-4 text-primary" />
-            <span>{"Vegan"}</span>
-          </div>
-        </div>
-
         {/* Title */}
         <div>
-          <h1 className="font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
-            {"Retrouve enfin des nuits profondes — et des matins légers."}
+          <div className="mx-auto mb-3 inline-flex items-center rounded-full border border-white/20 bg-gradient-to-r from-white/20 via-black/35 to-white/20 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm md:text-sm">
+            {"Dormir est devenu un combat et se réveiller une punition ?"}
+          </div>
+          <h1 className="font-serif text-2xl font-bold leading-tight text-foreground md:text-3xl lg:text-4xl">
+            {"Reprends le contrôle de tes nuits, et surtout de tes matins !"}
           </h1>
           <p className="mt-2 text-base text-muted-foreground">
-            {"Tu passes des heures à fixer le plafond ? Tu te réveilles épuisé ? Ce n'est pas une fatalité."}
+            {"Endors-toi rapidement sans sacrifier ton réveil. Avec Youy Gum, tu t'endors vite et tu te réveilles clair, aligné, opérationnel."}
           </p>
 
           {/* Primary CTA visible immédiatement avec prix de départ */}
@@ -317,15 +305,15 @@ export function HeroSection() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
+                <CarouselPrevious className="left-2 size-10 [&_svg]:size-5" />
+                <CarouselNext className="right-2 size-10 [&_svg]:size-5" />
               </Carousel>
             </div>
 
             {/* Floating badge on product image */}
-            <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-primary/90 px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg">
+            <div className="pointer-events-none absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-primary/90 px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg">
               <span className="text-sm">⭐</span>
-              <span>{"Best Seller • 12 000+ clients"}</span>
+              <span>{"+12 000 clients | Sans dépendance | Vegan & Halal"}</span>
             </div>
           </div>
         </div>
@@ -333,14 +321,6 @@ export function HeroSection() {
         {/* Right - Product Info */}
         <div className="flex flex-col gap-6">
           {/* Benefits */}
-          <div className="flex flex-col gap-3">
-            {benefits.map((b) => (
-              <div key={b.text} className="flex items-start gap-3">
-                <b.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                <span className="text-sm leading-relaxed text-foreground">{b.text}</span>
-              </div>
-            ))}
-          </div>
 
           {/* Pricing Options */}
           <div id="pricing-block" className="flex flex-col gap-3 scroll-mt-24">
@@ -350,12 +330,12 @@ export function HeroSection() {
                 onClick={() => setSelected(opt.id)}
                 className={`relative flex flex-col rounded-xl border-2 p-4 text-left transition-all ${
                   opt.popular
-                    ? "my-1 scale-105 border-transparent bg-[linear-gradient(var(--card),var(--card)),linear-gradient(135deg,#8B7AFF_0%,#56E3C6_100%)] [background-clip:padding-box,border-box] [background-origin:border-box] shadow-md"
+                    ? "my-1 scale-[1.06] border-transparent bg-[linear-gradient(rgba(183,173,255,0.24),rgba(139,122,255,0.14)),linear-gradient(var(--card),var(--card)),linear-gradient(135deg,#C3BAFF_0%,#8B7AFF_60%,#56E3C6_100%)] [background-clip:padding-box,padding-box,border-box] [background-origin:border-box] shadow-[0_14px_34px_-16px_rgba(139,122,255,0.9)]"
                     : selected === opt.id
                       ? "border-primary bg-card shadow-md"
                       : "border-border bg-card hover:border-primary/30"
                 } ${
-                  opt.popular && selected === opt.id ? "ring-2 ring-primary/30" : ""
+                  opt.popular && selected === opt.id ? "ring-2 ring-primary/50 shadow-[0_0_0_1px_rgba(195,186,255,0.55)]" : ""
                 }`}
               >
                 {/* Sachet Count Badge */}
@@ -382,25 +362,13 @@ export function HeroSection() {
                     </div>
                     <div>
                       <span className="font-semibold text-foreground">{opt.label}</span>
-                      {opt.popular && (
-                        <p className="mt-1 text-[11px] font-semibold text-primary">
-                          Choisi par 68% de nos clients
-                        </p>
-                      )}
                       <div className="mt-1 flex flex-wrap gap-2 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
-                          <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
+                          <Package className="h-3 w-3" />
                           {opt.duration}
                         </span>
-                        <span>•</span>
                         <span className="font-medium text-primary">{opt.pricePerDay}/jour</span>
-                        <span>•</span>
                         <span className="flex items-center gap-1">
-                          <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m-4 0v1a1 1 0 001 1h2m-6 0h6" />
-                          </svg>
                           {opt.delivery}
                         </span>
                       </div>
@@ -416,26 +384,47 @@ export function HeroSection() {
                       {opt.originalPrice}
                       {"EUR"}
                     </p>
-                    {opt.popular && (
-                      <p className="mt-1 text-[10px] font-semibold text-primary">
-                        Résultats optimaux dès la 2e semaine
-                      </p>
-                    )}
                   </div>
                 </div>
                 {/* Perks */}
-                <div className="mt-3 flex flex-col gap-1">
-                  {opt.perks.map((perk) => (
-                    <div key={perk} className="flex items-center gap-2 rounded-md bg-primary/5 px-3 py-1.5">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
-                      <span className="text-xs font-medium text-primary">{perk}</span>
-                    </div>
-                  ))}
-                </div>
+                {opt.perks.length > 0 && (
+                  <div
+                    className={`mt-3 overflow-hidden rounded-xl border ${
+                      opt.popular
+                        ? "border-[#b8abff]/70 bg-[radial-gradient(circle_at_20%_0%,rgba(136,110,255,0.42),rgba(132,118,220,0.84)_42%,rgba(255,255,255,0.96)_100%)] shadow-[0_18px_34px_-18px_rgba(120,98,255,0.75)]"
+                        : "border-primary/30 bg-secondary/70 shadow-sm shadow-primary/10"
+                    }`}
+                  >
+                    {opt.perks.map((perk) => {
+                      const PerkIcon = getPerkIcon(perk)
+                      return (
+                        <div
+                          key={perk}
+                          className={`flex items-center gap-3 border-b px-3 py-2.5 text-white last:border-b-0 ${
+                            opt.popular
+                              ? "border-[#b8abff]/60 bg-[linear-gradient(90deg,rgba(126,103,244,0.56)_0%,rgba(173,155,255,0.52)_58%,rgba(255,255,255,0.94)_100%)]"
+                              : "border-primary/35 bg-primary/30"
+                          }`}
+                        >
+                          <span
+                            className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full shadow-sm ${
+                              opt.popular
+                                ? "bg-white/15 text-white shadow-[#8f7bff]/45"
+                                : "bg-primary/90 text-primary-foreground shadow-primary/30"
+                            }`}
+                          >
+                            <PerkIcon className="h-3.5 w-3.5" />
+                          </span>
+                          <span className="text-xs font-semibold leading-tight text-white">{perk}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )}
                 {opt.popular && (
                   <div className="mt-3">
                     <span className="inline-flex animate-pulse items-center rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-semibold text-emerald-500 ring-1 ring-emerald-500/30">
-                      ⚡ Plus que 12 au tarif fondateur
+                      ⚡ Plus que 12 unités à ce tarif
                     </span>
                   </div>
                 )}
@@ -451,21 +440,10 @@ export function HeroSection() {
             Achat unique
           </button>
 
-          {/* FOMO doux sous le bloc pricing */}
-          <div className="mt-2 grid gap-2 rounded-2xl border border-destructive/20 bg-destructive/5 p-4 text-xs text-foreground md:grid-cols-2 md:items-center">
-            <p className="font-semibold text-destructive">
-              {`Il reste ${stockCount} packs au tarif fondateur`}
-            </p>
-            <p className="md:text-right">
-              <span className="font-semibold text-foreground">Cette offre expire dans :</span>{" "}
-              <span className="font-mono font-bold text-destructive">{countdown}</span>
-            </p>
-          </div>
-
           {/* Add to cart */}
           <button
             onClick={handleBuyNow}
-            className="w-full rounded-xl bg-primary py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+            className="w-full rounded-xl bg-emerald-500/15 py-4 text-base font-bold uppercase tracking-wider text-emerald-500 ring-1 ring-emerald-500/30 transition-all hover:bg-emerald-500/20 hover:shadow-lg"
           >
             Acheter maintenant
           </button>

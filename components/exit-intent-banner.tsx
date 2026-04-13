@@ -61,20 +61,33 @@ export function ExitIntentBanner() {
     <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-background/70 p-4 backdrop-blur-sm">
       <div className="w-full max-w-lg rounded-2xl border border-accent/40 bg-card p-6 shadow-2xl shadow-accent/20">
         <div className="text-center text-foreground">
-          <h3 className="text-xl font-bold text-accent">Encore des nuits difficiles ? On t&apos;offre une aide.</h3>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Utilise le code <span className="font-bold text-foreground">DEBUT10</span> pour -10% sur ta première commande.
+          <h3 className="text-3xl font-extrabold leading-tight text-accent md:text-4xl">Encore des nuits difficiles ?</h3>
+          <p className="mt-3 text-base font-medium text-foreground md:text-lg">
+            On t&apos;offre une vraie solution pour reprendre le contrôle.
+          </p>
+          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-accent md:text-sm">Tu es sélectionné(e) pour recevoir :</p>
+          <p className="mt-2 text-2xl font-black uppercase leading-tight text-foreground md:text-3xl">
+            Une routine sommeil complète sur 60 jours
+          </p>
+          <p className="mt-2 text-base font-semibold text-accent md:text-lg">(valeur : 99,80EUR)</p>
+          <p className="mt-4 text-sm text-muted-foreground md:text-base">
+            Des résultats dès les premières nuits — directement dans ta boîte mail.
           </p>
         </div>
 
         <div className="mt-5 flex flex-col items-center gap-3">
-          <a
-            href="#acheter"
+          <input
+            type="email"
+            placeholder="Ton adresse email"
+            className="w-full rounded-full border border-border bg-secondary px-4 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+          />
+          <button
+            type="button"
             onClick={() => setVisible(false)}
-            className="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-colors hover:bg-primary/90"
+            className="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-base font-bold uppercase tracking-wide text-primary-foreground shadow-md transition-colors hover:bg-primary/90"
           >
-            J&apos;accepte — économiser 10%
-          </a>
+            Recevoir ma routine offerte →
+          </button>
           <button
             type="button"
             onClick={() => setVisible(false)}

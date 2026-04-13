@@ -97,6 +97,7 @@ export function StatsSection() {
             <AnimatedStat key={stat.label} {...stat} />
           ))}
         </div>
+
       </div>
     </section>
   )

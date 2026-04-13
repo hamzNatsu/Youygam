@@ -93,6 +93,15 @@ export function PricingComparison() {
             {"*YOUY GUM Sleep reste un complément alimentaire : demande conseil à ton médecin en cas de traitement en cours ou de trouble du sommeil chronique."}
           </p>
         </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href="#acheter"
+            className="inline-block rounded-xl bg-primary px-10 py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+          >
+            Essayer 30 jours sans risque
+          </a>
+        </div>
       </div>
     </section>
   )

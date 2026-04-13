@@ -100,26 +100,6 @@ export function FaqSection() {
           ))}
         </div>
 
-        {/* Final CTA */}
-        <div className="mt-12 flex flex-col items-center gap-4">
-          <a
-            href="#acheter"
-            className="inline-block rounded-xl bg-primary px-10 py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
-          >
-            Essayer 30 jours sans risque
-          </a>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <ShieldIcon />
-              Garanti 60 jours
-            </span>
-            <span className="flex items-center gap-1.5">
-              <TruckIcon />
-              Livraison Gratuite France
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   )

@@ -5,11 +5,10 @@ import { Search, Menu, X } from "lucide-react"
 import { ScrollingBanner } from "./scrolling-banner"
 
 const navLinks = [
-  { href: "#hero-section", label: "Hero section", eyebrow: "01" },
-  { href: "#probleme", label: "Problème & solution", eyebrow: "02" },
-  { href: "#comment-ca-marche", label: "Comment ça marche", eyebrow: "03" },
-  { href: "#avis", label: "Avis", eyebrow: "04" },
-  { href: "#faq", label: "FAQ", eyebrow: "05" },
+  { href: "#probleme", label: "Problème & solution" },
+  { href: "#comment-ca-marche", label: "Comment ça marche" },
+  { href: "#avis", label: "Avis" },
+  { href: "#faq", label: "FAQ" },
 ]
 
 export function Navbar() {
@@ -37,9 +36,6 @@ export function Navbar() {
                 href={link.href}
                 className="group inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:border-border hover:bg-secondary hover:text-foreground"
               >
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary/70 group-hover:text-primary">
-                  {link.eyebrow}
-                </span>
                 <span>{link.label}</span>
               </a>
             ))}
@@ -69,9 +65,6 @@ export function Navbar() {
                   className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
-                    {link.eyebrow}
-                  </span>
                   <span>{link.label}</span>
                 </a>
               ))}

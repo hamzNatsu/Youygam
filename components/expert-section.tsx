@@ -50,6 +50,15 @@ export function ExpertSection() {
                 <span aria-hidden="true">→</span>
               </a>
             </div>
+
+            <div className="mt-8">
+              <a
+                href="#acheter"
+                className="inline-block rounded-xl bg-primary px-10 py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+              >
+                  Essayer 30 jours sans risque
+              </a>
+            </div>
           </div>
 
           {/* Expert Image */}

@@ -2,45 +2,38 @@ import Image from "next/image"
 
 export function CtaSection() {
   return (
-    <section className="px-6 py-8">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-primary relative">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/youy-gummies-pillow.jpeg"
-            alt=""
-            fill
-            className="object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-primary/70" />
-        </div>
+    <section className="relative overflow-hidden px-6 py-8">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0">
+        <Image src="/images/youy-gummies-pillow.jpeg" alt="" fill className="object-cover opacity-20" />
+        <div className="absolute inset-0 bg-primary/70" />
+      </div>
 
-        <div className="relative flex flex-col items-center px-8 py-16 text-center md:py-24">
-          <h2 className="font-serif text-3xl font-bold leading-tight text-primary-foreground md:text-4xl lg:text-5xl text-balance">
-            {"C'est pourquoi les Sleep Gummies YOUY GUM ont été créées"}
-          </h2>
+      <div className="relative flex flex-col items-center px-8 py-16 text-center md:py-24">
+        <h2 className="font-serif text-3xl font-bold leading-tight text-primary-foreground md:text-4xl lg:text-5xl text-balance">
+          {"C'est pourquoi les Sleep Gummies YOUY GUM ont été créées"}
+        </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
-            {"En combinant des ingrédients naturels cliniquement étudiés, tu peux restaurer ton cycle de sommeil à sa source : en calmant le système nerveux, en régulant la mélatonine et en préparant ton corps à un repos profond et réparateur."}
-          </p>
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
+          {"En combinant des ingrédients naturels cliniquement étudiés, tu peux restaurer ton cycle de sommeil à sa source : en calmant le système nerveux, en régulant la mélatonine et en préparant ton corps à un repos profond et réparateur."}
+        </p>
 
-          <a
-            href="#"
-            className="mt-8 inline-block rounded-xl bg-accent px-10 py-4 text-base font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-xl"
-          >
-            Reprendre le contrôle de mes nuits
-          </a>
+        <a
+          href="#acheter"
+          className="mt-8 inline-block rounded-xl bg-primary px-10 py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+        >
+          Essayer 30 jours sans risque
+        </a>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-primary-foreground/70">
-            <span className="flex items-center gap-2">
-              <ShieldIcon />
-              Garanti 60 jours
-            </span>
-            <span className="flex items-center gap-2">
-              <TruckIcon />
-              Livraison Gratuite France
-            </span>
-          </div>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-primary-foreground/70">
+          <span className="flex items-center gap-2">
+            <ShieldIcon />
+            Garanti 60 jours
+          </span>
+          <span className="flex items-center gap-2">
+            <TruckIcon />
+            Livraison Gratuite France
+          </span>
         </div>
       </div>
     </section>

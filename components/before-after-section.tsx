@@ -56,6 +56,15 @@ export function BeforeAfterSection() {
         <p className="mt-6 text-center text-xs text-muted-foreground">
           *Résultats indicatifs, basé sur un panel pilote. Les effets peuvent varier selon les individus.
         </p>
+
+        <div className="mt-10 text-center">
+          <a
+            href="#acheter"
+            className="inline-block rounded-xl bg-primary px-10 py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+          >
+              Commencer mes nuits réparatrices
+          </a>
+        </div>
       </div>
     </section>
   )

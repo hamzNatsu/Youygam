@@ -21,6 +21,15 @@ export function SocialProofSection() {
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
           {"Decouvrez comment des milliers de personnes ont ameliore leur qualite de sommeil, reduit leur stress nocturne et retrouve une energie matinale, sans medicaments ni routines compliquees."}
         </p>
+
+        <div className="mt-10">
+          <a
+            href="#acheter"
+            className="inline-block rounded-xl bg-primary px-10 py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+          >
+            Commencer mes nuits réparatrices
+          </a>
+        </div>
       </div>
     </section>
   )

@@ -52,10 +52,10 @@ export function MobileStickyCta() {
         </div>
 
         <a
-          href={`#${PRICING_BLOCK_ID}`}
+          href='https://f8cebf-de.myshopify.com/cart/52846096023888:1?selling_plan=689962549584'
           className="inline-flex h-9 shrink-0 items-center justify-center rounded-full bg-[#6C3FBF] px-4 text-[13px] font-bold text-white shadow-lg transition-transform hover:scale-[1.01]"
         >
-          Essayer — 44,90€ · 60j remboursé
+          Essayer maintenant - 44,90€
         </a>
       </div>
     </div>

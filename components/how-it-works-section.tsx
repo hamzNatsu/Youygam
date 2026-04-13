@@ -48,6 +48,15 @@ export function HowItWorksSection() {
             </div>
           ))}
         </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href="#acheter"
+            className="inline-block rounded-xl bg-primary px-10 py-4 text-base font-bold uppercase tracking-wider text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+          >
+            Commencer mes nuits réparatrices
+          </a>
+        </div>
       </div>
     </section>
   )

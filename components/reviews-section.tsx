@@ -6,6 +6,7 @@ const reviews = [
     name: "Marie D.",
     location: "Paris",
     image: "/images/reviews/marie.jpg",
+    proofImage: "/images/1776098878940-zfel9ab8d4.jpg",
     rating: 5,
     title: "Enfin un sommeil profond !",
     text: "Depuis que j'ai commencé les gummies YOUY GUM, je m'endors en moins de 20 minutes au lieu d'une heure. Le plus incroyable, c'est que je me réveille vraiment reposée. Ça fait des années que je n'avais pas dormi aussi bien. Merci !",
@@ -79,10 +80,22 @@ export function ReviewsSection() {
               <div>
                 <h4 className="font-semibold text-foreground">{review.title}</h4>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{review.text}</p>
+                {review.proofImage && (
+                  <div className="mt-3 w-full max-w-[220px] overflow-hidden rounded-xl border border-border bg-muted/30">
+                    <Image
+                      src={review.proofImage}
+                      alt={`Preuve de resultat pour ${review.name}`}
+                      width={600}
+                      height={400}
+                      className="h-auto w-full object-cover"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   )
