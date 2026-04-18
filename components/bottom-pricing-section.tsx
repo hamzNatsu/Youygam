@@ -153,7 +153,7 @@ export function BottomPricingSection() {
                 <div
                   className={`mt-3 overflow-hidden rounded-xl border ${
                     opt.popular
-                      ? "border-[#b8abff]/70 bg-[radial-gradient(circle_at_20%_0%,rgba(136,110,255,0.42),rgba(132,118,220,0.84)_42%,rgba(255,255,255,0.96)_100%)] shadow-[0_18px_34px_-18px_rgba(120,98,255,0.75)]"
+                      ? "border-[#b8abff]/70 bg-[linear-gradient(90deg,#7e67f48f_0%,#ad9bff00_58%,#55307d_100%)] shadow-[0_18px_34px_-18px_rgba(120,98,255,0.75)]"
                       : "border-primary/30 bg-secondary/70 shadow-sm shadow-primary/10"
                   }`}
                 >
@@ -164,7 +164,7 @@ export function BottomPricingSection() {
                         key={perk}
                         className={`flex items-center gap-3 border-b px-3 py-2.5 text-white last:border-b-0 ${
                           opt.popular
-                            ? "border-[#b8abff]/60 bg-[linear-gradient(90deg,rgba(126,103,244,0.56)_0%,rgba(173,155,255,0.52)_58%,rgba(255,255,255,0.94)_100%)]"
+                            ? "border-[#b8abff]/60 bg-[linear-gradient(169deg,#7e67f48f_35%,#ad9bff85_72%,#edeaeaf0_95%)]"
                             : "border-primary/35 bg-primary/30"
                         }`}
                       >

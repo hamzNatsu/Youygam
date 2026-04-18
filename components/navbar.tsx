@@ -5,10 +5,13 @@ import { Search, Menu, X } from "lucide-react"
 import { ScrollingBanner } from "./scrolling-banner"
 
 const navLinks = [
-  { href: "#probleme", label: "Insomnie & réveils difficiles" },
+  { href: "#probleme", label: "Insomnie & Réveils difficiles ?" },
+  { href: "#pourquoi-ca-arrive", label: "Pourquoi ça arrive ?" },
+  { href: "#solution-simple", label: "La solution YouY" },
   { href: "#comment-ca-marche", label: "Le rituel YouY" },
-  { href: "#avis", label: "Résultats clients" },
-  { href: "#faq", label: "Questions fréquentes" },
+  { href: "#acheter", label: "Offre & Packs" },
+  { href: "#avis", label: "Ils ont choisi YouY" },
+  { href: "#faq", label: "FAQ" },
 ]
 
 export function Navbar() {
