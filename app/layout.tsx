@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "YOUY GUM — Sleep Gummies | S'endormir en 18 min, naturellement",
   description:
-    'Decouvre YOUY GUM, les gummies premium pour un sommeil naturel et reparateur. Formule naturelle sans dependance · 12 000 clients · Satisfait ou rembourse 60 jours.',
+    'Découvre YOUY GUM, les gummies premium pour un sommeil naturel et réparateur. Formule naturelle sans dépendance · 12 000 clients · Satisfait ou remboursé 60 jours.',
   generator: 'v0.app',
   icons: {
     icon: [

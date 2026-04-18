@@ -18,14 +18,14 @@ export function BeforeAfterSection() {
                 <p className="mt-1 text-lg font-bold text-destructive">45 min</p>
               </div>
               <div className="rounded-xl bg-primary/10 p-3">
-                <p className="text-xs font-semibold text-primary">Apres 14 nuits</p>
+                <p className="text-xs font-semibold text-primary">Après 14 nuits</p>
                 <p className="mt-1 text-lg font-bold text-primary">18 min</p>
               </div>
             </div>
           </div>
 
           <div className="rounded-2xl border border-border bg-card p-5">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Reveils nocturnes par nuit</h3>
+            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Réveils nocturnes par nuit</h3>
             <div className="mt-4 space-y-3 text-sm">
               <div className="rounded-xl bg-destructive/10 p-3">
                 <p className="text-xs font-semibold text-destructive">Avant YOUY GUM</p>
@@ -33,20 +33,20 @@ export function BeforeAfterSection() {
               </div>
               <div className="rounded-xl bg-primary/10 p-3">
                 <p className="text-xs font-semibold text-primary">Après 4 semaines</p>
-                <p className="mt-1 text-lg font-bold text-primary">1 reveil</p>
+                <p className="mt-1 text-lg font-bold text-primary">1 réveil</p>
               </div>
             </div>
           </div>
 
           <div className="rounded-2xl border border-border bg-card p-5">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Score moyen de repos au reveil</h3>
+            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Score moyen de repos au réveil</h3>
             <div className="mt-4 space-y-3 text-sm">
               <div className="rounded-xl bg-destructive/10 p-3">
                 <p className="text-xs font-semibold text-destructive">Avant YOUY GUM</p>
                 <p className="mt-1 text-lg font-bold text-destructive">4 / 10</p>
               </div>
               <div className="rounded-xl bg-primary/10 p-3">
-                <p className="text-xs font-semibold text-primary">Apres 4 semaines</p>
+                <p className="text-xs font-semibold text-primary">Après 4 semaines</p>
                 <p className="mt-1 text-lg font-bold text-primary">8 / 10</p>
               </div>
             </div>
@@ -54,7 +54,7 @@ export function BeforeAfterSection() {
         </div>
 
         <p className="mt-6 text-center text-xs text-muted-foreground">
-          *Résultats indicatifs, basé sur un panel pilote. Les effets peuvent varier selon les individus.
+          *Résultats indicatifs, basés sur un panel pilote. Les effets peuvent varier selon les individus.
         </p>
 
         <div className="mt-10 text-center">

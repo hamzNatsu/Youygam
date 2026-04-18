@@ -25,7 +25,7 @@ const productSchema = {
   "@type": "Product",
   name: "YOUY GUM Sleep Gummies",
   description:
-    "Sleep gummies naturels pour aider a s'endormir plus vite, reduire le stress nocturne et ameliorer la qualite du sommeil.",
+    "Sleep gummies naturels pour aider à s'endormir plus vite, réduire le stress nocturne et améliorer la qualité du sommeil.",
   brand: {
     "@type": "Brand",
     name: "YOUY GUM",
@@ -53,23 +53,23 @@ const faqSchema = {
       name: "Que sont les Sleep Gummies YOUY GUM et comment fonctionnent-elles ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Les Sleep Gummies YOUY GUM sont des complements alimentaires sous forme de gommes a macher, formulees avec de la melatonine micro-dosee, de la L-theanine, de la passiflore et de la camomille. Elles agissent en synergie pour calmer le systeme nerveux, reguler le cycle circadien et favoriser un endormissement naturel et rapide.",
+        text: "Les Sleep Gummies YOUY GUM sont des compléments alimentaires sous forme de gommes à mâcher, formulées avec de la mélatonine micro-dosée, de la L-théanine, de la passiflore et de la camomille. Elles agissent en synergie pour calmer le système nerveux, réguler le cycle circadien et favoriser un endormissement naturel et rapide.",
       },
     },
     {
       "@type": "Question",
-      name: "A qui s'adressent ces gummies ?",
+      name: "À qui s'adressent ces gummies ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Elles s'adressent a toute personne adulte souhaitant ameliorer la qualite de son sommeil : difficultes d'endormissement, reveils nocturnes, stress en fin de journee, ou simplement envie d'un sommeil plus profond et reparateur. Elles conviennent aux vegans et sont sans gluten.",
+        text: "Elles s'adressent à toute personne adulte souhaitant améliorer la qualité de son sommeil : difficultés d'endormissement, réveils nocturnes, stress en fin de journée, ou simplement envie d'un sommeil plus profond et réparateur. Elles conviennent aux véganes et sont sans gluten.",
       },
     },
     {
       "@type": "Question",
-      name: "Les gummies peuvent-elles ameliorer la qualite du sommeil et reduire le stress ?",
+      name: "Les gummies peuvent-elles améliorer la qualité du sommeil et réduire le stress ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Oui. Notre formule associe des ingredients cliniquement etudies pour leurs effets sur la relaxation et le sommeil. La L-theanine reduit le stress et l'anxiete, la melatonine regule le cycle veille-sommeil, et les extraits de plantes favorisent la detente musculaire et mentale.",
+        text: "Oui. Notre formule associe des ingrédients cliniquement étudiés pour leurs effets sur la relaxation et le sommeil. La L-théanine réduit le stress et l'anxiété, la mélatonine régule le cycle veille-sommeil, et les extraits de plantes favorisent la détente musculaire et mentale.",
       },
     },
     {
@@ -77,23 +77,23 @@ const faqSchema = {
       name: "Quels sont les effets secondaires possibles ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Les ingredients de YOUY GUM sont naturels et generalement bien toleres. Certaines personnes peuvent ressentir une legere somnolence, ce qui est l'effet recherche. Nous recommandons de ne pas depasser la dose conseillee et de consulter ton medecin si tu es enceinte, allaitante ou sous traitement.",
+        text: "Les ingrédients de YOUY GUM sont naturels et généralement bien tolérés. Certaines personnes peuvent ressentir une légère somnolence, ce qui est l'effet recherché. Nous recommandons de ne pas dépasser la dose conseillée et de consulter ton médecin si tu es enceinte, allaitante ou sous traitement.",
       },
     },
     {
       "@type": "Question",
-      name: "Puis-je les prendre avec d'autres medicaments ou complements ?",
+      name: "Puis-je les prendre avec d'autres médicaments ou compléments ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Bien que nos ingredients soient naturels, nous recommandons de consulter ton medecin ou pharmacien avant de combiner les gummies avec d'autres medicaments, en particulier les sedatifs, anxiolytiques ou anticoagulants.",
+        text: "Bien que nos ingrédients soient naturels, nous recommandons de consulter ton médecin ou pharmacien avant de combiner les gummies avec d'autres médicaments, en particulier les sédatifs, anxiolytiques ou anticoagulants.",
       },
     },
     {
       "@type": "Question",
-      name: "Combien de temps faut-il pour voir des resultats ?",
+      name: "Combien de temps faut-il pour voir des résultats ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "La plupart de nos clients constatent une amelioration des la premiere nuit. Pour des resultats optimaux et durables, nous recommandons une cure de 4 semaines minimum. 94% de nos utilisateurs rapportent un endormissement plus rapide apres 2 semaines d'utilisation.",
+        text: "La plupart de nos clients constatent une amélioration dès la première nuit. Pour des résultats optimaux et durables, nous recommandons une cure de 4 semaines minimum. 94% de nos utilisateurs rapportent un endormissement plus rapide après 2 semaines d'utilisation.",
       },
     },
   ],

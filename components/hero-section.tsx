@@ -20,9 +20,13 @@ const benefits = [
 const productCarouselImages = [
   "/product_carousel/1d6ff8f4011c411576bbdb542e64b0291947029.jpeg",
   "/product_carousel/df670059e73c3b778fd3ba10ab09d2ca1806703.jpeg",
-  "/product_carousel/3635427a640aaf71214d6f57b133c8ea1901336.jpeg",
-  "/product_carousel/6d84f7d35275324437d77de3e38eee2f1593560.jpeg",
-  "/product_carousel/95626ffba4c9e25362a4555b620873eb1941106.jpeg",
+  "/product_carousel/1.png",
+  "/product_carousel/2.png",
+  "/product_carousel/3.png",
+  "/product_carousel/4.png",
+  "/product_carousel/5.png",
+  "/product_carousel/6.png",
+  "/product_carousel/7.png",
 ]
 
 const pricingOptions = [
@@ -234,42 +238,42 @@ export function HeroSection() {
   }
 
   return (
-    <section id="hero-section" className="px-6 py-8 lg:py-12 scroll-mt-24">
+    <section id="hero-section" className="scroll-mt-24 px-6 py-6 lg:py-12">
       {/* Top - Rating, title, CTA */}
-      <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-3 text-center md:gap-4">
         {/* Rating */}
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-1.5 md:gap-2">
           <div className="flex">
             {[1, 2, 3, 4, 5].map((i) => (
-              <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+              <Star key={i} className="h-4 w-4 fill-accent text-accent md:h-5 md:w-5" />
             ))}
           </div>
-          <span className="text-sm font-medium text-muted-foreground">
+          <span className="text-xs font-medium text-muted-foreground md:text-sm">
             {"4.9/5 Excellent"}
           </span>
         </div>
 
         {/* Title */}
         <div>
-          <div className="mx-auto mb-3 inline-flex items-center rounded-full border border-white/20 bg-gradient-to-r from-white/20 via-black/35 to-white/20 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm md:text-sm">
+          <div className="mx-auto mb-2 inline-flex items-center rounded-full border border-white/20 bg-gradient-to-r from-white/20 via-black/35 to-white/20 px-3 py-1 text-[11px] font-medium text-white/90 backdrop-blur-sm md:mb-3 md:px-4 md:py-1.5 md:text-sm">
             {"Dormir est devenu un combat et se réveiller une punition ?"}
           </div>
-          <h1 className="font-serif text-2xl font-bold leading-tight text-foreground md:text-3xl lg:text-4xl">
+          <h1 className="font-serif text-[1.5rem] font-bold leading-snug text-foreground sm:text-2xl md:text-3xl lg:text-4xl">
             {"Reprends le contrôle de tes nuits, et surtout de tes matins !"}
           </h1>
-          <p className="mt-2 text-base text-muted-foreground">
+          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground sm:text-base md:mt-2">
             {"Endors-toi rapidement sans sacrifier ton réveil. Avec Youy Gum, tu t'endors vite et tu te réveilles clair, aligné, opérationnel."}
           </p>
 
           {/* Primary CTA visible immédiatement avec prix de départ */}
-          <div className="mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
+          <div className="mt-3 flex flex-row items-center justify-center gap-2 sm:mt-4 sm:gap-4">
             <button
               onClick={handleGoToAcheter}
-              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg"
+              className="whitespace-nowrap rounded-full bg-primary px-4 py-2 text-[11px] font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg sm:px-6 sm:py-3 sm:text-sm"
             >
               {"Commencer mes nuits réparatrices →"}
             </button>
-            <span className="text-xs text-muted-foreground">
+            <span className="whitespace-nowrap text-[11px] text-muted-foreground sm:text-xs">
               {"À partir de "}
               <span className="font-semibold text-foreground">{startingPriceLabel}</span>
             </span>
@@ -300,7 +304,7 @@ export function HeroSection() {
                         height={720}
                         loading={index === 0 ? "eager" : "lazy"}
                         fetchPriority={index === 0 ? "high" : "auto"}
-                        className="mx-auto h-auto w-full max-h-[460px] object-contain md:max-h-[500px]"
+                        className="mx-auto !h-full w-full max-h-[460px] object-contain transition-transform md:max-h-[500px]"
                       />
                     </CarouselItem>
                   ))}
@@ -391,7 +395,7 @@ export function HeroSection() {
                   <div
                     className={`mt-3 overflow-hidden rounded-xl border ${
                       opt.popular
-                        ? "border-[#b8abff]/70 bg-[radial-gradient(circle_at_20%_0%,rgba(136,110,255,0.42),rgba(132,118,220,0.84)_42%,rgba(255,255,255,0.96)_100%)] shadow-[0_18px_34px_-18px_rgba(120,98,255,0.75)]"
+                        ? "border-[#b8abff]/70 bg-[linear-gradient(90deg,#7e67f48f_0%,#ad9bff00_58%,#55307d_100%)] shadow-[0_18px_34px_-18px_rgba(120,98,255,0.75)]"
                         : "border-primary/30 bg-secondary/70 shadow-sm shadow-primary/10"
                     }`}
                   >
@@ -402,7 +406,7 @@ export function HeroSection() {
                           key={perk}
                           className={`flex items-center gap-3 border-b px-3 py-2.5 text-white last:border-b-0 ${
                             opt.popular
-                              ? "border-[#b8abff]/60 bg-[linear-gradient(90deg,rgba(126,103,244,0.56)_0%,rgba(173,155,255,0.52)_58%,rgba(255,255,255,0.94)_100%)]"
+                              ? "border-[#b8abff]/60 bg-[linear-gradient(169deg,#7e67f48f_35%,#ad9bff85_72%,#edeaeaf0_95%)]"
                               : "border-primary/35 bg-primary/30"
                           }`}
                         >
@@ -432,20 +436,20 @@ export function HeroSection() {
             ))}
           </div>
 
-          {/* Achat unique */}
-          <button
-            onClick={handleSinglePurchase}
-            className="w-full text-center text-xs text-white"
-          >
-            Achat unique
-          </button>
-
           {/* Add to cart */}
           <button
             onClick={handleBuyNow}
             className="w-full rounded-xl bg-emerald-500/15 py-4 text-base font-bold uppercase tracking-wider text-emerald-500 ring-1 ring-emerald-500/30 transition-all hover:bg-emerald-500/20 hover:shadow-lg"
           >
             Acheter maintenant
+          </button>
+
+          {/* Achat unique */}
+          <button
+            onClick={handleSinglePurchase}
+            className="w-full text-center text-xs text-white"
+          >
+            Achat unique
           </button>
         </div>
       </div>

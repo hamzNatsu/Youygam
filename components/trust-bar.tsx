@@ -2,9 +2,9 @@ import { Truck, Leaf, ShieldCheck, Clock } from "lucide-react"
 
 const trustItems = [
   { icon: Truck, label: "Livraison Gratuite en France" },
-  { icon: Leaf, label: "100% Ingredients Naturels" },
-  { icon: ShieldCheck, label: "Formule Cliniquement Testee" },
-  { icon: Clock, label: "Satisfait ou Rembourse 60 jours" },
+  { icon: Leaf, label: "100% Ingrédients Naturels" },
+  { icon: ShieldCheck, label: "Formule Cliniquement Testée" },
+  { icon: Clock, label: "Satisfait ou Remboursé 60 jours" },
 ]
 
 export function TrustBar() {

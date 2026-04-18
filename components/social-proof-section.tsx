@@ -15,11 +15,11 @@ export function SocialProofSection() {
         </div>
 
         <h2 className="font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl text-balance">
-          {"Plus de 12 000 Francais ont retrouve un sommeil reparateur"}
+          {"Plus de 12 000 Français ont retrouvé un sommeil réparateur"}
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          {"Decouvrez comment des milliers de personnes ont ameliore leur qualite de sommeil, reduit leur stress nocturne et retrouve une energie matinale, sans medicaments ni routines compliquees."}
+          {"Découvrez comment des milliers de personnes ont amélioré leur qualité de sommeil, réduit leur stress nocturne et retrouvé une énergie matinale, sans médicaments ni routines compliquées."}
         </p>
 
         <div className="mt-10">

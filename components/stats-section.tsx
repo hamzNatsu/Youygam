@@ -15,7 +15,7 @@ const stats = [
   },
   {
     value: 80,
-    display: "45 min → 18 min",
+    display: "45 min -> 18 min",
     label: "temps moyen d'endormissement après 4 semaines",
   },
 ]
@@ -32,6 +32,8 @@ function AnimatedStat({
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLDivElement>(null)
   const [hasAnimated, setHasAnimated] = useState(false)
+  const isRangeDisplay = display.includes("->")
+  const [rangeStart, rangeEnd] = display.split("->").map((part) => part.trim())
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,8 +77,17 @@ function AnimatedStat({
             className="text-accent transition-all duration-100"
           />
         </svg>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-serif text-xl font-bold md:text-2xl">{display}</span>
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          {isRangeDisplay ? (
+            <span className="font-mono text-xl font-bold leading-tight tracking-tight tabular-nums md:text-2xl">
+              <span className="block">{rangeStart}</span>
+              <span className="block">{`-> ${rangeEnd}`}</span>
+            </span>
+          ) : (
+            <span className="font-mono text-3xl font-bold leading-none tracking-tight tabular-nums md:text-4xl">
+              {display}
+            </span>
+          )}
         </div>
       </div>
       <p className="text-center text-sm font-medium leading-tight">{label}</p>

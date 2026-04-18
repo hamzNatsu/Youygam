@@ -2,58 +2,40 @@
 
 import { useEffect, useState } from "react"
 
-import { useIsMobile } from "@/hooks/use-mobile"
-
-const EXIT_INTENT_STORAGE_KEY = "youygum_exit_intent_shown"
-
 export function ExitIntentBanner() {
   const [visible, setVisible] = useState(false)
-  const isMobile = useIsMobile()
+  const [hasTriggered, setHasTriggered] = useState(false)
 
   useEffect(() => {
-    if (typeof window === "undefined") return
-    const alreadyShown = window.localStorage.getItem(EXIT_INTENT_STORAGE_KEY)
-    if (alreadyShown === "1") return
+    if (typeof window === "undefined" || hasTriggered) return
 
-    const openExitIntent = () => {
-      setVisible(true)
-      window.localStorage.setItem(EXIT_INTENT_STORAGE_KEY, "1")
+    const getScrollProgress = () => {
+      const doc = document.documentElement
+      const body = document.body
+      const scrollTop = Math.max(window.scrollY, doc.scrollTop, body.scrollTop)
+      const scrollHeight = Math.max(doc.scrollHeight, body.scrollHeight)
+      const scrollableHeight = Math.max(0, scrollHeight - window.innerHeight)
+
+      if (scrollableHeight === 0) return 0
+      return scrollTop / scrollableHeight
     }
 
-    const handleMouseOut = (event: MouseEvent) => {
-      if (isMobile) return
-      if (event.clientY <= 0 && !visible) {
-        openExitIntent()
-      }
-    }
-
-    let lastY = window.scrollY
-    let lastTs = Date.now()
     const handleScroll = () => {
-      if (!isMobile || visible) return
-
-      const now = Date.now()
-      const currentY = window.scrollY
-      const deltaY = currentY - lastY
-      const deltaTime = now - lastTs
-
-      // On mobile, a sharp upward movement usually signals an intent to leave.
-      if (deltaY < -90 && deltaTime > 0 && deltaTime < 220 && currentY > 180) {
-        openExitIntent()
+      const scrollProgress = getScrollProgress()
+      if (scrollProgress >= 0.1) {
+        setVisible(true)
+        setHasTriggered(true)
       }
-
-      lastY = currentY
-      lastTs = now
     }
 
-    window.addEventListener("mouseout", handleMouseOut)
     window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll()
+    window.requestAnimationFrame(handleScroll)
 
     return () => {
-      window.removeEventListener("mouseout", handleMouseOut)
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [isMobile, visible])
+  }, [hasTriggered])
 
   if (!visible) return null
 
@@ -62,10 +44,7 @@ export function ExitIntentBanner() {
       <div className="w-full max-w-lg rounded-2xl border border-accent/40 bg-card p-6 shadow-2xl shadow-accent/20">
         <div className="text-center text-foreground">
           <h3 className="text-3xl font-extrabold leading-tight text-accent md:text-4xl">Encore des nuits difficiles ?</h3>
-          <p className="mt-3 text-base font-medium text-foreground md:text-lg">
-            On t&apos;offre une vraie solution pour reprendre le contrôle.
-          </p>
-          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-accent md:text-sm">Tu es sélectionné(e) pour recevoir :</p>
+          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-accent md:text-sm">Tu es sélectionné(e) pour gagner :</p>
           <p className="mt-2 text-2xl font-black uppercase leading-tight text-foreground md:text-3xl">
             Une routine sommeil complète sur 60 jours
           </p>
@@ -86,7 +65,7 @@ export function ExitIntentBanner() {
             onClick={() => setVisible(false)}
             className="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-base font-bold uppercase tracking-wide text-primary-foreground shadow-md transition-colors hover:bg-primary/90"
           >
-            Recevoir ma routine offerte →
+            Voir le résultat →
           </button>
           <button
             type="button"

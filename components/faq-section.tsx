@@ -7,52 +7,52 @@ const faqs = [
   {
     question: "Que sont les Sleep Gummies YOUY GUM et comment fonctionnent-elles ?",
     answer:
-      "Les Sleep Gummies YOUY GUM sont des complements alimentaires sous forme de gommes a macher, formulees avec de la melatonine micro-dosee, de la L-theanine, de la passiflore et de la camomille. Elles agissent en synergie pour calmer le systeme nerveux, reguler le cycle circadien et favoriser un endormissement naturel et rapide.",
+      "Les Sleep Gummies YOUY GUM sont des compléments alimentaires sous forme de gommes à mâcher, formulées avec de la mélatonine micro-dosée, de la L-théanine, de la passiflore et de la camomille. Elles agissent en synergie pour calmer le système nerveux, réguler le cycle circadien et favoriser un endormissement naturel et rapide.",
   },
   {
-    question: "A qui s'adressent ces gummies ?",
+    question: "À qui s'adressent ces gummies ?",
     answer:
-      "Elles s'adressent a toute personne adulte souhaitant ameliorer la qualite de son sommeil : difficultes d'endormissement, reveils nocturnes, stress en fin de journee, ou simplement envie d'un sommeil plus profond et reparateur. Elles conviennent aux vegans et sont sans gluten.",
+      "Elles s'adressent à toute personne adulte souhaitant améliorer la qualité de son sommeil : difficultés d'endormissement, réveils nocturnes, stress en fin de journée, ou simplement envie d'un sommeil plus profond et réparateur. Elles conviennent aux véganes et sont sans gluten.",
   },
   {
-    question: "Les gummies peuvent-elles ameliorer la qualite du sommeil et reduire le stress ?",
+    question: "Les gummies peuvent-elles améliorer la qualité du sommeil et réduire le stress ?",
     answer:
-      "Oui. Notre formule associe des ingredients cliniquement etudies pour leurs effets sur la relaxation et le sommeil. La L-theanine reduit le stress et l'anxiete, la melatonine regule le cycle veille-sommeil, et les extraits de plantes favorisent la detente musculaire et mentale.",
+      "Oui. Notre formule associe des ingrédients cliniquement étudiés pour leurs effets sur la relaxation et le sommeil. La L-théanine réduit le stress et l'anxiété, la mélatonine régule le cycle veille-sommeil, et les extraits de plantes favorisent la détente musculaire et mentale.",
   },
   {
     question: "Quels sont les effets secondaires possibles ?",
     answer:
-      "Les ingredients de YOUY GUM sont naturels et generalement bien toleres. Certaines personnes peuvent ressentir une legere somnolence, ce qui est l'effet recherche. Nous recommandons de ne pas depasser la dose conseillee et de consulter ton medecin si tu es enceinte, allaitante ou sous traitement.",
+      "Les ingrédients de YOUY GUM sont naturels et généralement bien tolérés. Certaines personnes peuvent ressentir une légère somnolence, ce qui est l'effet recherché. Nous recommandons de ne pas dépasser la dose conseillée et de consulter ton médecin si tu es enceinte, allaitante ou sous traitement.",
   },
   {
-    question: "Puis-je les prendre avec d'autres medicaments ou complements ?",
+    question: "Puis-je les prendre avec d'autres médicaments ou compléments ?",
     answer:
-      "Bien que nos ingredients soient naturels, nous recommandons de consulter ton medecin ou pharmacien avant de combiner les gummies avec d'autres medicaments, en particulier les sedatifs, anxiolytiques ou anticoagulants.",
+      "Bien que nos ingrédients soient naturels, nous recommandons de consulter ton médecin ou pharmacien avant de combiner les gummies avec d'autres médicaments, en particulier les sédatifs, anxiolytiques ou anticoagulants.",
   },
   {
-    question: "Combien de temps faut-il pour voir des resultats ?",
+    question: "Combien de temps faut-il pour voir des résultats ?",
     answer:
-      "La plupart de nos clients constatent une amelioration des la premiere nuit. Pour des resultats optimaux et durables, nous recommandons une cure de 4 semaines minimum. 94% de nos utilisateurs rapportent un endormissement plus rapide apres 2 semaines d'utilisation.",
+      "La plupart de nos clients constatent une amélioration dès la première nuit. Pour des résultats optimaux et durables, nous recommandons une cure de 4 semaines minimum. 94% de nos utilisateurs rapportent un endormissement plus rapide après 2 semaines d'utilisation.",
   },
   {
-    question: "Les gummies sont-elles veganes et sans allergenes ?",
+    question: "Les gummies sont-elles véganes et sans allergènes ?",
     answer:
-      "Oui, nos gummies sont 100% veganes, sans gluten, sans lactose et sans allergenes majeurs. Elles sont fabriquees en France dans un laboratoire certifie ISO 22000.",
+      "Oui, nos gummies sont 100% véganes, sans gluten, sans lactose et sans allergènes majeurs. Elles sont fabriquées en France dans un laboratoire certifié ISO 22000.",
   },
   {
-    question: "Les ingredients sont-ils naturels et surs ?",
+    question: "Les ingrédients sont-ils naturels et sûrs ?",
     answer:
-      "Absolument. Tous nos ingredients sont d'origine naturelle et ont ete selectionnes pour leur efficacite prouvee cliniquement et leur excellent profil de securite. Chaque lot est teste par un laboratoire independant.",
+      "Absolument. Tous nos ingrédients sont d'origine naturelle et ont été sélectionnés pour leur efficacité prouvée cliniquement et leur excellent profil de sécurité. Chaque lot est testé par un laboratoire indépendant.",
   },
   {
     question: "Ai-je besoin d'une ordonnance ?",
     answer:
-      "Non. Les Sleep Gummies YOUY GUM sont un complement alimentaire et ne necessitent pas de prescription medicale. Elles sont en vente libre.",
+      "Non. Les Sleep Gummies YOUY GUM sont un complément alimentaire et ne nécessitent pas de prescription médicale. Elles sont en vente libre.",
   },
   {
     question: "Comment conserver le produit ?",
     answer:
-      "Conservez les gummies dans un endroit frais et sec, a l'abri de la lumiere directe du soleil. Refermez bien le pot apres chaque utilisation. Ne pas refrigerer.",
+      "Conservez les gummies dans un endroit frais et sec, à l'abri de la lumière directe du soleil. Refermez bien le pot après chaque utilisation. Ne pas réfrigérer.",
   },
 ]
 
@@ -69,7 +69,7 @@ export function FaqSection() {
     <section id="faq" className="bg-card px-6 py-16 md:py-24">
       <div className="mx-auto max-w-3xl">
         <h2 className="mb-10 text-center font-serif text-3xl font-bold text-foreground md:text-4xl">
-          Questions Frequentes
+          Questions fréquentes
         </h2>
 
         <div className="flex flex-col gap-2">

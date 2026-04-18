@@ -5,10 +5,10 @@ import { Search, Menu, X } from "lucide-react"
 import { ScrollingBanner } from "./scrolling-banner"
 
 const navLinks = [
-  { href: "#probleme", label: "Problème & solution" },
-  { href: "#comment-ca-marche", label: "Comment ça marche" },
-  { href: "#avis", label: "Avis" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#probleme", label: "Insomnie & réveils difficiles" },
+  { href: "#comment-ca-marche", label: "Le rituel YouY" },
+  { href: "#avis", label: "Résultats clients" },
+  { href: "#faq", label: "Questions fréquentes" },
 ]
 
 export function Navbar() {
