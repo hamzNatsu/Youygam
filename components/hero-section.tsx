@@ -19,14 +19,14 @@ const benefits = [
 
 const productCarouselImages = [
   "/product_carousel/1d6ff8f4011c411576bbdb542e64b0291947029.jpeg",
-  "/product_carousel/df670059e73c3b778fd3ba10ab09d2ca1806703.jpeg",
   "/product_carousel/1.png",
+  "/product_carousel/6.png",
   "/product_carousel/2.png",
   "/product_carousel/3.png",
   "/product_carousel/4.png",
   "/product_carousel/5.png",
-  "/product_carousel/6.png",
   "/product_carousel/7.png",
+  "/product_carousel/df670059e73c3b778fd3ba10ab09d2ca1806703.jpeg",
 ]
 
 const pricingOptions = [
