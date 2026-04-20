@@ -14,7 +14,7 @@ const simpleSolution = [
 
 export function ProblemSolutionSection() {
   return (
-    <section id="probleme" className="px-6 py-14 md:py-20 scroll-mt-24">
+    <section id="probleme" className="px-6 pt-0 pb-14 md:py-20 scroll-mt-24">
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
         <article id="vous-vous-reconnaissez" className="rounded-2xl border border-border/60 bg-card/70 p-6 shadow-lg shadow-black/10 backdrop-blur-sm scroll-mt-24">
           <div className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1 text-xs font-semibold text-destructive">
