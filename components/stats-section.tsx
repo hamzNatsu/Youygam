@@ -15,7 +15,7 @@ const stats = [
   },
   {
     value: 80,
-    display: "45 min -> 18 min",
+    display: "18 min",
     label: "temps moyen d'endormissement après 4 semaines",
   },
 ]

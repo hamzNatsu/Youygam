@@ -141,10 +141,10 @@ export function BottomPricingSection() {
 
                 <div className="text-right">
                   <span className="text-lg font-bold text-foreground">
-                    {opt.price}EUR
+                    {opt.price}{"\u00A0€"}
                   </span>
                   <p className="text-xs text-muted-foreground line-through">
-                    {opt.originalPrice}EUR
+                    {opt.originalPrice}{"\u00A0€"}
                   </p>
                 </div>
               </div>
@@ -193,11 +193,12 @@ export function BottomPricingSection() {
               )}
             </button>
           ))}
+
         </div>
 
         <button
           onClick={handleBuyNow}
-          className="mt-4 w-full rounded-xl bg-emerald-500/15 py-4 text-base font-bold uppercase tracking-wider text-emerald-500 ring-1 ring-emerald-500/30 transition-all hover:bg-emerald-500/20 hover:shadow-lg"
+          className="mt-4 w-full rounded-xl bg-[lab(81_15.4_70.68)] py-4 text-[18px] font-bold uppercase tracking-wider text-[#392857] transition-opacity hover:opacity-90 focus-visible:outline-none"
         >
           Acheter maintenant
         </button>

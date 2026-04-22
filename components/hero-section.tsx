@@ -8,6 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel"
 
 const benefits = [
@@ -141,6 +142,38 @@ export function HeroSection() {
   const [imageInView, setImageInView] = useState(false)
   const [countdown, setCountdown] = useState("48:00:00")
   const [stockCount, setStockCount] = useState(STARTING_STOCK)
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null)
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+
+  useEffect(() => {
+    if (!carouselApi) return
+
+    const onSelect = () => {
+      setSelectedImageIndex(carouselApi.selectedScrollSnap())
+    }
+
+    onSelect()
+    carouselApi.on("select", onSelect)
+    carouselApi.on("reInit", onSelect)
+    return () => {
+      carouselApi.off("select", onSelect)
+      carouselApi.off("reInit", onSelect)
+    }
+  }, [carouselApi])
+
+  useEffect(() => {
+    if (!carouselApi) return
+
+    const intervalId = window.setInterval(() => {
+      const current = carouselApi.selectedScrollSnap()
+      const next = (current + 1) % productCarouselImages.length
+      carouselApi.scrollTo(next)
+    }, 3000)
+
+    return () => {
+      window.clearInterval(intervalId)
+    }
+  }, [carouselApi])
 
   useEffect(() => {
     if (!imageRef.current || typeof window === "undefined") return
@@ -274,7 +307,6 @@ export function HeroSection() {
               {"Commencer mes nuits réparatrices →"}
             </button>
             <span className="whitespace-nowrap text-[11px] text-muted-foreground sm:text-xs">
-              {"À partir de "}
               <span className="font-semibold text-foreground">{startingPriceLabel}</span>
             </span>
           </div>
@@ -292,32 +324,61 @@ export function HeroSection() {
             }`}
           >
             <div className="relative overflow-hidden rounded-3xl bg-secondary/80 p-4 shadow-2xl shadow-primary/20 md:p-5">
-              <Carousel className="w-full">
-                <CarouselContent>
+              <div className="relative">
+                <Carousel className="w-full" setApi={(api) => setCarouselApi(api)}>
+                  <CarouselContent>
+                    {productCarouselImages.map((src, index) => (
+                      <CarouselItem key={src}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={src}
+                          alt={`YOUY GUM Sleep Gummies - Vue produit ${index + 1}`}
+                          width={720}
+                          height={720}
+                          loading={index === 0 ? "eager" : "lazy"}
+                          fetchPriority={index === 0 ? "high" : "auto"}
+                          className="mx-auto !h-full w-full max-h-[460px] object-contain transition-transform md:max-h-[500px]"
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2 size-10 [&_svg]:size-5" />
+                  <CarouselNext className="right-2 size-10 [&_svg]:size-5" />
+                </Carousel>
+
+                <div className="pointer-events-none absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-primary/90 px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg">
+                  <span className="text-sm">⭐</span>
+                  <span>{"+12 000 clients | Sans dépendance | Vegan & Halal"}</span>
+                </div>
+              </div>
+
+              <div className="mt-4 overflow-x-auto no-scrollbar">
+                <div className="flex gap-3">
                   {productCarouselImages.map((src, index) => (
-                    <CarouselItem key={src}>
+                    <button
+                      key={src}
+                      type="button"
+                      onClick={() => carouselApi?.scrollTo(index)}
+                      aria-label={`Voir l'image produit ${index + 1}`}
+                      className={`aspect-square shrink-0 basis-[calc((100%-1.5rem)/3)] overflow-hidden rounded-xl border bg-secondary/60 p-2 transition-colors hover:bg-secondary ${
+                        index === selectedImageIndex
+                          ? "border-primary ring-2 ring-primary/40"
+                          : "border-border"
+                      }`}
+                    >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={src}
-                        alt={`YOUY GUM Sleep Gummies - Vue produit ${index + 1}`}
-                        width={720}
-                        height={720}
-                        loading={index === 0 ? "eager" : "lazy"}
-                        fetchPriority={index === 0 ? "high" : "auto"}
-                        className="mx-auto !h-full w-full max-h-[460px] object-contain transition-transform md:max-h-[500px]"
+                        alt=""
+                        width={200}
+                        height={200}
+                        loading="lazy"
+                        className="h-full w-full object-contain"
                       />
-                    </CarouselItem>
+                    </button>
                   ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-2 size-10 [&_svg]:size-5" />
-                <CarouselNext className="right-2 size-10 [&_svg]:size-5" />
-              </Carousel>
-            </div>
-
-            {/* Floating badge on product image */}
-            <div className="pointer-events-none absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-primary/90 px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg">
-              <span className="text-sm">⭐</span>
-              <span>{"+12 000 clients | Sans dépendance | Vegan & Halal"}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -381,12 +442,11 @@ export function HeroSection() {
                   <div className="text-right">
                     <span className="text-lg font-bold text-foreground">
                       {opt.price}
-                      {""}
-                      {"EUR"}
+                      {"\u00A0€"}
                     </span>
                     <p className="text-xs text-muted-foreground line-through">
                       {opt.originalPrice}
-                      {"EUR"}
+                      {"\u00A0€"}
                     </p>
                   </div>
                 </div>
@@ -439,7 +499,7 @@ export function HeroSection() {
           {/* Add to cart */}
           <button
             onClick={handleBuyNow}
-            className="w-full rounded-xl bg-emerald-500/15 py-4 text-base font-bold uppercase tracking-wider text-emerald-500 ring-1 ring-emerald-500/30 transition-all hover:bg-emerald-500/20 hover:shadow-lg"
+            className="w-full rounded-xl bg-[lab(81_15.4_70.68)] py-4 text-[18px] font-bold uppercase tracking-wider text-[#392857] transition-opacity hover:opacity-90 focus-visible:outline-none"
           >
             Acheter maintenant
           </button>

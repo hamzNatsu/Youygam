@@ -7,7 +7,7 @@ export function HowItWorksSection() {
     {
       icon: Clock,
       title: "30 minutes avant le coucher",
-      text: "Tu prends 2 gummies environ 30 minutes avant de dormir.",
+      text: "Tu prends 1 gummie par jour environ 30 minutes avant de dormir.",
     },
     {
       icon: Sparkles,
