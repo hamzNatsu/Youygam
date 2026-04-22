@@ -354,29 +354,34 @@ export function HeroSection() {
 
               <div className="mt-4 overflow-x-auto no-scrollbar">
                 <div className="flex gap-3">
-                  {productCarouselImages.map((src, index) => (
-                    <button
-                      key={src}
-                      type="button"
-                      onClick={() => carouselApi?.scrollTo(index)}
-                      aria-label={`Voir l'image produit ${index + 1}`}
-                      className={`aspect-square shrink-0 basis-[calc((100%-1.5rem)/3)] overflow-hidden rounded-xl border bg-secondary/60 p-2 transition-colors hover:bg-secondary ${
-                        index === selectedImageIndex
-                          ? "border-primary ring-2 ring-primary/40"
-                          : "border-border"
-                      }`}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={src}
-                        alt=""
-                        width={200}
-                        height={200}
-                        loading="lazy"
-                        className="h-full w-full object-contain"
-                      />
-                    </button>
-                  ))}
+                  {Array.from({ length: productCarouselImages.length }, (_, offset) =>
+                    (selectedImageIndex + offset) % productCarouselImages.length,
+                  ).map((imageIndex) => {
+                    const src = productCarouselImages[imageIndex]
+                    return (
+                      <button
+                        key={src}
+                        type="button"
+                        onClick={() => carouselApi?.scrollTo(imageIndex)}
+                        aria-label={`Voir l'image produit ${imageIndex + 1}`}
+                        className={`aspect-square shrink-0 basis-[calc((100%-1.5rem)/3)] overflow-hidden rounded-xl border bg-secondary/60 p-2 transition-colors hover:bg-secondary ${
+                          imageIndex === selectedImageIndex
+                            ? "border-primary ring-2 ring-primary/40"
+                            : "border-border"
+                        }`}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={src}
+                          alt=""
+                          width={200}
+                          height={200}
+                          loading="lazy"
+                          className="h-full w-full object-contain"
+                        />
+                      </button>
+                    )
+                  })}
                 </div>
               </div>
             </div>
