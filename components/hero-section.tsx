@@ -44,7 +44,7 @@ const pricingOptions = [
     perks: ['Livraison Standard Gratuite'],
     popular: false,
     normalUrl:
-      "https://f8cebf-de.myshopify.com/cart/52846096023888:1?selling_plan=689962549584",
+      "https://f8cebf-de.myshopify.com/cart/clear?return_to=/cart/add?items[][id]=52846096023888%26items[][quantity]=1%26items[][selling_plan]=689962549584%26return_to=/checkout",
     singleUrl:
       "https://f8cebf-de.myshopify.com/cart/52846411710800:1",
   },
@@ -61,7 +61,7 @@ const pricingOptions = [
     perks: ['OFFERT : Guide "Mieux Dormir"','Livraison Standard Gratuite'],
     popular: true,
     normalUrl:
-      "https://f8cebf-de.myshopify.com/cart/52846583087440:1?selling_plan=689962582352",
+      "https://f8cebf-de.myshopify.com/cart/clear?return_to=/cart/add?items[][id]=52846583087440%26items[][quantity]=1%26items[][selling_plan]=689962582352%26return_to=/checkout",
     singleUrl:
       "https://f8cebf-de.myshopify.com/cart/52846096712016:1",
   },
@@ -78,7 +78,7 @@ const pricingOptions = [
     perks: ["Livraison Express Gratuite", 'OFFERT : Guide "Mieux Dormir"'],
     popular: false,
     normalUrl:
-      "https://f8cebf-de.myshopify.com/cart/52846115488080:1?selling_plan=689962615120",
+      "https://f8cebf-de.myshopify.com/cart/clear?return_to=/cart/add?items[][id]=52846115488080%26items[][quantity]=1%26items[][selling_plan]=689962615120%26return_to=/checkout",
     singleUrl:
       "https://f8cebf-de.myshopify.com/cart/52846389363024:1",
   },
