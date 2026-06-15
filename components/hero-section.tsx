@@ -35,11 +35,11 @@ const pricingOptions = [
     id: "one",
     label: "L'Essai 30 Jours",
     subtitle: "Pack 1",
-    price: "44.90",
+    price: "29.99",
     originalPrice: "49.90",
-    savings: "5.00",
+    savings: "19.91",
     duration: "1 sachet",
-    pricePerDay: "1,49 €",
+    pricePerDay: "0,99 €",
     delivery: "",
     perks: ['Livraison Standard Gratuite'],
     popular: false,
@@ -52,11 +52,11 @@ const pricingOptions = [
     id: "two",
     label: "L'Équilibre 60 Jours",
     subtitle: "Pack 2",
-    price: "74.90",
-    originalPrice: "99.80",
-    savings: "24.90",
+    price: "49.99",
+    originalPrice: "89.90",
+    savings: "39.91",
     duration: "2 sachets",
-    pricePerDay: "1,24 €",
+    pricePerDay: "0,83 €",
     delivery: "",
     perks: ['OFFERT : Guide "Mieux Dormir"','Livraison Standard Gratuite'],
     popular: true,
@@ -69,11 +69,11 @@ const pricingOptions = [
     id: "three",
     label: "Vitalité+ 90 Jours",
     subtitle: "Pack 3",
-    price: "99.90",
-    originalPrice: "149.70",
-    savings: "49.80",
+    price: "59.99",
+    originalPrice: "109.90",
+    savings: "49.91",
     duration: "3 sachets",
-    pricePerDay: "1,11 €",
+    pricePerDay: "0,67 €",
     delivery: "",
     perks: ["Livraison Express Gratuite", 'OFFERT : Guide "Mieux Dormir"'],
     popular: false,
@@ -89,7 +89,7 @@ const startingPrice = pricingOptions.reduce(
   Number.POSITIVE_INFINITY,
 )
 
-const startingPriceLabel = '1,11 € / jour'
+const startingPriceLabel = '0,67 € / jour'
 
 const COUNTDOWN_STORAGE_KEY = "youygum_expiry"
 const STOCK_STORAGE_KEY = "youygum_fundator_stock"

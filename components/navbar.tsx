@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Search, Menu, X } from "lucide-react"
+import { Search, Menu, X, User } from "lucide-react"
 import { ScrollingBanner } from "./scrolling-banner"
 
 const navLinks = [
@@ -45,6 +45,15 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
+            <a
+              href="https://moncompte.youygum.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center gap-2 rounded-full border border-border px-4 py-1.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary md:inline-flex"
+            >
+              <User className="h-4 w-4" />
+              <span>Mon compte</span>
+            </a>
             <button aria-label="Rechercher" className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
               <Search className="h-5 w-5" />
             </button>
@@ -61,6 +70,16 @@ export function Navbar() {
         {mobileOpen && (
           <div className="border-t border-border bg-card px-6 py-4 md:hidden">
             <div className="flex flex-col gap-2">
+              <a
+                href="https://moncompte.youygum.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-xl border border-border px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+                onClick={() => setMobileOpen(false)}
+              >
+                <User className="h-4 w-4" />
+                <span>Mon compte · Rétractation</span>
+              </a>
               {navLinks.map((link) => (
                 <a
                   key={link.href}

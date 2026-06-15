@@ -40,6 +40,7 @@ export function Footer() {
               <li><a href="#" className="transition-opacity hover:opacity-100">Contact</a></li>
               <li><a href="#" className="transition-opacity hover:opacity-100">Livraison & Retours</a></li>
               <li><a href="#" className="transition-opacity hover:opacity-100">Garantie 60 jours</a></li>
+              <li><a href="https://moncompte.youygum.com" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-100">Mon compte</a></li>
             </ul>
           </div>
 
@@ -49,6 +50,7 @@ export function Footer() {
               <li><a href="/mentions-legales" className="transition-opacity hover:opacity-100">{"Mentions légales"}</a></li>
               <li><a href="/politique-confidentialite" className="transition-opacity hover:opacity-100">{"Politique de confidentialité"}</a></li>
               <li><a href="/cgv" className="transition-opacity hover:opacity-100">CGV</a></li>
+              <li><a href="https://moncompte.youygum.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-accent opacity-100 transition-opacity hover:opacity-80">Droit de rétractation</a></li>
             </ul>
           </div>
         </div>
